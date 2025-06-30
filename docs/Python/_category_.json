@@ -2,6 +2,8 @@
   "label": "Python",
   "position": 3,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "description": "Insights detalhados sobre a linguagem Python, abrangendo desde conceitos básicos até técnicas avançadas, com foco em aplicações práticas e desenvolvimento de software eficiente."
+
   }
 }
