@@ -96,7 +96,7 @@ export class AppModule {}
 ### Controllers
 Os controladores são responsáveis por lidar com as requisições HTTP. Eles são anotados com o decorador `@Controller()` e definem rotas para os endpoints da aplicação.
 
-Possuo métodos que respondem a requisições HTTP e são anotados com decoradores como `@Get()`, `@Post()`, `@Put()`, etc. Esses métodos recebem os dados da requisição e retornam uma resposta.
+Possui métodos que respondem a requisições HTTP e são anotados com decoradores como `@Get()`, `@Post()`, `@Put()`, etc. Esses métodos recebem os dados da requisição e retornam uma resposta.
 
 ```typescript title="app.controller.ts"
 import { Controller, Get } from '@nestjs/common';
@@ -131,7 +131,6 @@ export class AppController {
 
 
     ```
-
 :::
 
 ### Services
@@ -166,3 +165,44 @@ export class CreateUserDto {
 :::tip Validações
     As validações são aplicadas automaticamente quando os DTOs são usados nas rotas. Se os dados não atenderem aos critérios definidos, uma exceção será lançada.
 :::
+
+## Inversão de Dependência (DI)
+
+O NestJS utiliza o padrão de Inversão de Dependência (DI) para gerenciar a criação e injeção de dependências. Isso permite que os serviços sejam facilmente testáveis e reutilizáveis.
+
+Os serviços podem ser injetados em controladores ou outros serviços usando o construtor. O NestJS cuida da criação e injeção das instâncias necessárias.
+
+```typescript title="app.controller.ts"
+import { Controller, Get } from '@nestjs/common';
+import { AppService } from './app.service';
+@Controller('/')
+export class AppController {
+    constructor(private readonly appService: AppService) {}
+    @Get()
+    getHello(): string {
+        return this.appService.getHello();
+    }
+}
+``` 
+
+Nesse exemplo, o `AppService` é injetado no `AppController`, permitindo que o controlador utilize os métodos do serviço.
+
+## Injeção de Dependências
+
+A injeção de dependências é uma característica fundamental do NestJS, permitindo que você injete serviços e outros módulos em seus controladores e serviços. Isso promove a reutilização de código e facilita os testes.
+
+Você pode injetar serviços usando o construtor do controlador ou serviço. O NestJS resolve automaticamente as dependências necessárias.
+
+```typescript title="app.module.ts"
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { UsersModule } from './users/users.module'; 
+
+@Module({
+  imports: [UsersModule], // Importando o módulo de usuários
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
+```
