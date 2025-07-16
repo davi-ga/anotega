@@ -249,6 +249,8 @@ As interfaces são uma forma de definir contratos para objetos e classes. Elas p
 interface PessoaInterface {
   nome: string;
   idade: number;
+
+  falar(): void;
 }
 
 class Estudante implements PessoaInterface {
@@ -258,6 +260,8 @@ class Estudante implements PessoaInterface {
     this.nome = nome;
     this.idade = idade;
   }
+  falar(): void {
+    console.log(`Meu nome é ${this.nome} e tenho ${this.idade} anos.`);
+  }
 }
 ```
-
