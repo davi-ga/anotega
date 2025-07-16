@@ -280,3 +280,27 @@ class Estudante implements PessoaInterface {
   }
 }
 ```
+
+### Extra
+
+#### Omit
+
+Omit é um utilitário do TypeScript que permite criar um novo tipo removendo uma ou mais propriedades de um tipo existente. Isso é útil quando você deseja criar um tipo baseado em outro, mas sem algumas propriedades específicas.
+
+```typescript
+interface Usuario {
+  id: number;
+  nome: string;
+  email: string;
+}   
+
+type UsuarioSemEmail = Omit<Usuario, 'email'>;
+const usuario: UsuarioSemEmail = {
+  id: 1,
+  nome: 'João',
+  // email: 'joao@example.com'
+
+  // A propriedade 'email' foi omitida
+
+};
+```
