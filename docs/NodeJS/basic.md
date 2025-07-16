@@ -202,6 +202,21 @@ class Pessoa {
 }   
 ```
 
+#### Construtores
+
+Os construtores são métodos especiais que são chamados quando uma instância de uma classe é criada. Eles são usados para inicializar as propriedades da classe.
+
+```typescript
+class Pessoa {
+  nome: string;
+  idade: number;
+  constructor(nome: string, idade: number) {
+    this.nome = nome;
+    this.idade = idade;
+  }
+}
+```
+
 #### Visibilidade
 
 As visibilidades em TypeScript controlam o acesso às propriedades e métodos de uma classe. Existem três modificadores de visibilidade: `public`, `private` e `protected`.
