@@ -206,3 +206,32 @@ import { UsersModule } from './users/users.module';
 })
 export class AppModule {}
 ```
+
+## DTOs (Data Transfer Objects)
+
+Os DTOs são usados para definir a estrutura dos dados que serão enviados e recebidos nas requisições. Eles ajudam a validar e transformar os dados antes de serem processados pelos controladores ou serviços.
+
+```typescript title="create-user.dto.ts"
+export interface CreateUserDto {
+    name: string;
+    age: number;
+}
+```
+
+### Validações
+
+As validações podem ser aplicadas aos DTOs usando o pacote `class-validator`. Isso permite que você defina regras de validação para os campos dos DTOs, garantindo que os dados recebidos estejam corretos.
+
+```typescript title="create-user.dto.ts"
+import { IsString, IsInt } from 'class-validator';
+export class CreateUserDto {
+    @IsString()
+    name: string;
+    @IsInt()
+    age: number;
+}
+```
+
+:::warning 
+  Decorators de validação do class-validator só funcionam em classes, não em interfaces. Portanto, é recomendado usar classes para DTOs quando você precisar de validações.
+:::
