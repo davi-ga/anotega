@@ -304,3 +304,85 @@ const usuario: UsuarioSemEmail = {
 
 };
 ```
+
+## Package.json
+
+O `package.json` é um arquivo fundamental em projetos Node.js, que contém informações sobre o projeto, como nome, versão, descrição, autor, dependências e scripts. Ele é usado pelo NPM (Node Package Manager) para gerenciar pacotes e dependências do projeto.
+
+É basicamente um manifesto que define as metadados do projeto e permite que o NPM instale as dependências corretas.
+
+### Estrutura do package.json
+
+```json title="package.json"
+{
+  "name": "meu-projeto",
+  "version": "1.0.0",
+  "description": "Descrição do meu projeto",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "author": "Seu Nome",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "typescript": "^4.1.2"
+  }
+}
+```
+- `name`: Nome do projeto.
+- `version`: Versão do projeto.
+- `description`: Descrição do projeto.
+- `main`: Ponto de entrada do projeto (arquivo principal).
+- `scripts`: Scripts personalizados que podem ser executados com `npm run <script-name>`.
+- `author`: Autor do projeto.
+- `license`: Licença do projeto.
+- `dependencies`: Dependências do projeto necessárias para a execução.
+- `devDependencies`: Dependências de desenvolvimento necessárias apenas durante o desenvolvimento e testes.
+
+### Dependências
+As dependências são pacotes externos que o seu projeto precisa para funcionar corretamente. Elas são listadas na seção `dependencies` do `package.json`. Você pode instalar uma dependência usando o comando `npm install <package-name>`.
+
+```bash
+npm install express
+```
+
+Isso adicionará o pacote `express` à seção `dependencies` do seu `package.json`.
+
+## Nodemon
+
+O Nodemon é uma ferramenta que monitora alterações no código-fonte de aplicações Node.js e reinicia automaticamente o servidor quando detecta mudanças. Isso é extremamente útil durante o desenvolvimento, pois elimina a necessidade de reiniciar manualmente o servidor sempre que uma alteração é feita.
+
+É baseado no Node.js e pode ser usado com qualquer aplicação Node.js, incluindo aquelas escritas em TypeScript. O Nodemon pode ser configurado para monitorar arquivos específicos ou diretórios inteiros, e também permite ignorar certos arquivos ou pastas.
+
+Você pode configurar o Nodemon criando um arquivo `nodemon.json` na raiz do seu projeto. Este arquivo permite definir opções de configuração, como quais arquivos monitorar, quais ignorar e quais comandos executar ao iniciar o servidor.
+
+```json title="nodemon.json"
+{
+  "watch": ["src"],
+  "ext": "ts",
+  "exec": "ts-node src/index.ts",
+  "ignore": ["node_modules", "dist"]
+}
+```
+
+Para instalar o Nodemon, você pode usar o seguinte comando:
+
+```bash
+npm install --save-dev nodemon
+```
+Em seguida, você pode adicionar um script no seu `package.json` para facilitar o uso do Nodemon:
+
+```json title="package.json"
+{
+  "scripts": {
+    "dev": "nodemon"
+  }
+}
+```
+
+

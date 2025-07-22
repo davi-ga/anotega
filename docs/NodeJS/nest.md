@@ -7,7 +7,7 @@ sidebar_position: 1
 O NestJS é um framework para construir aplicações Node.js eficientes, confiáveis e escaláveis. Ele é construído com TypeScript e combina elementos de programação orientada a objetos, programação funcional e programação reativa. É um framework opinado que segue o padrão de arquitetura MVC (Model-View-Controller) e é inspirado em frameworks como Angular.
 
  
- ## Inicialização
+## Inicialização
 
 Para iniciar um projeto NestJS, você pode usar o CLI do NestJS. Primeiro, instale o CLI globalmente:
 ```bash
@@ -75,7 +75,55 @@ async function bootstrap() {
 bootstrap();
 ```
 
+
+#### Application Context
+
+O contexto da aplicação é o ambiente onde o NestJS executa. Ele é criado quando você chama `NestFactory.createApplicationContext(AppModule)`. O contexto contém informações sobre os módulos, controladores e provedores registrados na aplicação.
+
+```typescript title="main.ts"
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+async function bootstrap() {
+  const app = await NestFactory.createApplicationContext(AppModule);
+  await app.listen(3000);
+}
+bootstrap();
+```
+
+:::tip Contexto da Aplicação
+    O contexto da aplicação é útil para acessar serviços e módulos fora do ciclo de vida de uma requisição HTTP, como em tarefas agendadas ou scripts de inicialização.
+:::
+
+#### Swagger
+
+Para documentar sua API, você pode usar o Swagger. O NestJS possui integração nativa com o Swagger, permitindo que você gere documentação interativa para sua API.
+```typescript title="main.ts"
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+
+  const config = new DocumentBuilder()
+    .setTitle('API Example')
+    .setDescription('API description')
+    .setVersion('1.0')
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('docs', app, document);
+
+  await app.listen(3000);
+}
+bootstrap();
+```
+
+:::tip Swagger
+    A documentação Swagger estará disponível em `http://localhost:3000/docs` após iniciar a aplicação.
+:::
+
 ### Modules
+
 Os módulos são a base da estrutura do NestJS. Cada módulo é uma classe anotada com o decorador `@Module()`, que define os componentes que pertencem a esse módulo, como controladores e provedores.
 
 Serve para conectar diferentes partes da aplicação, como controladores, serviços e outros módulos. Cada módulo é uma classe anotada com o decorador `@Module()`.
@@ -148,39 +196,37 @@ export class AppService {
     }
 ```
 
-## Data Objects (DTOs)
+#### Retorno
 
-Os Data Transfer Objects (DTOs) são usados para definir a estrutura dos dados que serão enviados e recebidos nas requisições. Eles são anotados com o decorador `@Dto()` e podem incluir validações usando decoradores do pacote `class-validator`.
 
-```typescript title="create-user.dto.ts"
-import { IsString, IsInt } from 'class-validator';
-export class CreateUserDto {
-    @IsString()
-    name: string;
-    @IsInt()
-    age: number;
+
+## Inversão de Dependência
+
+O NestJS segue o princípio da Inversão de Dependência (DIP - Dependency Inversion Principle), que é um dos princípios SOLID. Este princípio estabelece que:
+
+- Módulos de alto nível não devem depender de módulos de baixo nível. Ambos devem depender de abstrações.
+- Abstrações não devem depender de detalhes. Detalhes devem depender de abstrações.
+
+No NestJS, isso significa que os controladores dependem de abstrações (interfaces) dos serviços, não de suas implementações concretas. Isso torna o código mais flexível, testável e facilita a manutenção.
+
+```typescript title="user.service.interface.ts"
+export interface IUserService {
+    getUser(id: string): Promise<User>;
+    createUser(userData: CreateUserDto): Promise<User>;
 }
-```   
-
-:::tip Validações
-    As validações são aplicadas automaticamente quando os DTOs são usados nas rotas. Se os dados não atenderem aos critérios definidos, uma exceção será lançada.
-:::
-
-## Inversão de Dependência (DI)
-
-O NestJS utiliza o padrão de Inversão de Dependência (DI) para gerenciar a criação e injeção de dependências. Isso permite que os serviços sejam facilmente testáveis e reutilizáveis.
-
-Os serviços podem ser injetados em controladores ou outros serviços usando o construtor. O NestJS cuida da criação e injeção das instâncias necessárias.
+```
 
 ```typescript title="app.controller.ts"
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { IUserService } from './interfaces/user.service.interface';
+
 @Controller('/')
 export class AppController {
-    constructor(private readonly appService: AppService) {}
+    constructor(private readonly userService: IUserService) {}
+    
     @Get()
-    getHello(): string {
-        return this.appService.getHello();
+    getUsers(): Promise<User[]> {
+        return this.userService.getAllUsers();
     }
 }
 ``` 
@@ -189,7 +235,13 @@ Nesse exemplo, o `AppService` é injetado no `AppController`, permitindo que o c
 
 ## Injeção de Dependências
 
-A injeção de dependências é uma característica fundamental do NestJS, permitindo que você injete serviços e outros módulos em seus controladores e serviços. Isso promove a reutilização de código e facilita os testes.
+A Injeção de Dependências (DI - Dependency Injection) é a técnica utilizada pelo NestJS para implementar o princípio da Inversão de Dependência. É o mecanismo que permite fornecer as dependências necessárias para uma classe sem que ela precise criá-las diretamente.
+
+O NestJS possui um container de IoC (Inversion of Control) que gerencia automaticamente a criação e injeção das instâncias dos serviços. Isso promove:
+
+- **Baixo acoplamento**: Classes não dependem de implementações concretas
+- **Facilidade de testes**: Dependências podem ser facilmente "mockadas"
+- **Reutilização de código**: Serviços podem ser compartilhados entre diferentes módulos
 
 Você pode injetar serviços usando o construtor do controlador ou serviço. O NestJS resolve automaticamente as dependências necessárias.
 
@@ -200,7 +252,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module'; 
 
 @Module({
-  imports: [UsersModule], // Importando o módulo de usuários
+  imports: [UsersModule],
   controllers: [AppController],
   providers: [AppService],
 })
@@ -235,3 +287,93 @@ export class CreateUserDto {
 :::warning 
   Decorators de validação do class-validator só funcionam em classes, não em interfaces. Portanto, é recomendado usar classes para DTOs quando você precisar de validações.
 :::
+
+
+## JWT
+
+O JWT (JSON Web Token) é um padrão aberto (RFC 7519) que define um formato compacto e autocontido para transmitir informações entre partes como um objeto JSON. No NestJS, você pode usar o pacote `@nestjs/jwt` para implementar autenticação baseada em JWT.
+
+Ele é amplamente utilizado para autenticação e autorização em aplicações web. O JWT é composto por três partes: header, payload e signature. Ele permite que você autentique usuários de forma segura e escalável.
+-- **Header**: Contém informações sobre o tipo de token e o algoritmo de assinatura.
+-- **Payload**: Contém as informações do usuário e outras reivindicações (claims).
+-- **Signature**: É usada para verificar a integridade do token e garantir que ele não foi alterado.
+
+```typescript title="jwt.strategy.ts"
+import { Injectable } from '@nestjs/common';
+import { PassportStrategy } from '@nestjs/passport';
+import { ExtractJwt, Strategy } from 'passport-jwt';
+import { JwtPayload } from './jwt-payload.interface';
+
+@Injectable()
+export class JwtStrategy extends PassportStrategy(Strategy) {
+    constructor() {
+        super({
+            jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+            ignoreExpiration: false,
+            secretOrKey: 'your_jwt_secret',
+        });
+    }
+
+    async validate(payload: JwtPayload) {
+        return { userId: payload.sub, username: payload.username };
+    }
+}
+```
+
+### Guards
+
+Os Guards são usados para proteger rotas e controlar o acesso a elas. Eles são classes que implementam a interface `CanActivate` e podem ser usados para verificar se uma requisição deve ser processada ou não.
+
+Eles são executados antes que a requisição seja manipulada pelo controlador e podem ser usados para autenticação, autorização ou outras verificações de segurança.
+
+```typescript title="auth.guard.ts"
+import { Injectable } from '@nestjs/common';
+import { CanActivate, ExecutionContext } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
+
+@Injectable()
+export class AuthGuard implements CanActivate {
+    constructor(private readonly jwtService: JwtService) {}
+
+    canActivate(context: ExecutionContext): boolean {
+        const request = context.switchToHttp().getRequest();
+        const token = request.headers.authorization?.split(' ')[1];
+        if (!token) return false;
+
+        try {
+            const payload = this.jwtService.verify(token);
+            request.user = payload;
+            return true;
+        } catch (error) {
+            return false;
+        }
+    }
+}
+
+```
+
+
+## Decorators
+
+Os Decorators são uma parte fundamental do NestJS e do TypeScript. Eles são usados para adicionar metadados às classes, métodos, propriedades e parâmetros. No NestJS, os decoradores são amplamente utilizados para definir controladores, rotas, injeção de dependências e muito mais.
+
+Eles são funções que podem ser aplicadas a classes, métodos, propriedades ou parâmetros para modificar seu comportamento ou adicionar metadados. No NestJS, os decoradores são usados para definir controladores, rotas, injeção de dependências e muito mais.
+
+```typescript title="example.decorator.ts"
+import { SetMetadata } from '@nestjs/common';
+export const Roles = (...roles: string[]) => SetMetadata('roles', roles);
+```
+
+```typescript title="example.controller.ts"
+import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Roles } from './example.decorator';
+import { RolesGuard } from './roles.guard';
+@Controller('example')
+export class ExampleController {
+    @Get()
+    @Roles('admin')
+    @UseGuards(RolesGuard)
+    getExample() {
+        return 'This is an example route';
+    }
+}
