@@ -377,3 +377,192 @@ export class ExampleController {
         return 'This is an example route';
     }
 }
+
+```
+
+## Prisma   
+
+O Prisma é um ORM (Object-Relational Mapping) moderno e poderoso para Node.js e TypeScript. Ele facilita a interação com bancos de dados relacionais, permitindo que você escreva consultas de forma intuitiva e segura.
+
+Para usar o Prisma no NestJS, você precisa instalar o pacote `@nestjs/prisma` e configurar o Prisma Client.
+
+```bash
+npm install @nestjs/prisma prisma
+```
+
+Em seguida, você pode criar um módulo Prisma e configurar o Prisma Client.
+
+```typescript title="prisma.module.ts"
+import { Module } from '@nestjs/common';    
+import { PrismaService } from './prisma.service';
+@Module({
+  providers: [PrismaService],
+  exports: [PrismaService],
+})
+export class PrismaModule {}
+```
+
+```typescript title="prisma.service.ts"
+import { Injectable } from '@nestjs/common';
+import { PrismaClient } from '@prisma/client';
+@Injectable()
+export class PrismaService extends PrismaClient {
+    constructor() {
+        super();
+    }
+}
+}
+```
+
+Com isso é possível injetar o `PrismaService` em outros serviços ou controladores e usar o Prisma Client para interagir com o banco de dados.
+
+```typescript title="user.service.ts"
+import { Injectable } from '@nestjs/common';
+import { PrismaService } from './prisma.service';
+@Injectable()
+export class UserService {
+    constructor(private readonly prisma: PrismaService) {}
+    async getUser(id: number) {
+        return this.prisma.user.findUnique({ where: { id } });
+    }
+    async createUser(data: CreateUserDto) {
+
+        return this.prisma.user.create({ data });
+    }
+}
+``` 
+
+### Queries
+
+As consultas no Prisma são feitas usando o Prisma Client, que fornece métodos para interagir com o banco de dados. Você pode usar métodos como `findUnique`, `findMany`, `create`, `update` e `delete` para realizar operações CRUD.
+
+
+#### Joins
+
+Para realizar joins com o Prisma, você pode usar a opção `include` nas consultas. Isso permite que você busque dados relacionados de outras tabelas.
+
+```typescript title="user.service.ts"
+async getUserWithPosts(id: number) {
+    return this.prisma.user.findUnique({
+        where: { id },
+        include: { posts: true }
+    });
+}
+```
+
+O uso do `omit` permite que você exclua campos específicos do resultado da consulta. Isso é útil quando você não precisa de todos os campos de um registro.
+
+```typescript title="user.service.ts"
+async getUserWithPosts(id: number) {
+    return this.prisma.user.findUnique({
+        where: { id },
+        include: {
+            posts: {
+                omit: {
+                    createdAt: true,
+            },
+        },
+    });
+}
+```
+
+O uso do `select` permite que você selecione apenas os campos específicos que deseja retornar na consulta. Isso é útil para otimizar o desempenho e reduzir a quantidade de dados retornados.
+
+```typescript title="user.service.ts"
+async getUserWithSelectedFields(id: number) {
+    return this.prisma.user.findUnique({
+        where: { id },
+        select: {
+            name: true,
+            email: true,
+            posts: {
+                select: {
+                    title: true,
+                    content: true,
+                },
+            },
+        },
+    });
+}
+```
+
+#### Create
+
+Para criar registros no Prisma, você pode usar o método `create`. Ele permite que você especifique os dados do novo registro.
+
+```typescript title="user.service.ts"
+async createUser(data: CreateUserDto) {
+    return this.prisma.user.create({
+        data: {
+            name: data.name,
+            email: data.email,
+        },
+    });
+}
+```
+
+É possível fazer create aninhado, ou seja, criar registros relacionados em uma única consulta.
+
+```typescript title="user.service.ts"
+async createUserWithPosts(data: CreateUserDto) {
+    return this.prisma.user.create({
+        data: {
+            name: data.name,
+            posts: {
+                create: data.posts.map(post => ({
+                    title: post.title,   
+                    content: post.content,
+                })),
+            },
+        },
+    });
+}
+```
+
+#### Update
+
+Para atualizar registros no Prisma, você pode usar o método `update`. Ele permite que você especifique o registro a ser atualizado e os novos dados.
+
+```typescript title="user.service.ts"
+async updateUser(id: number, data: UpdateUserDto) {
+    return this.prisma.user.update({
+        where: { id },
+        data,
+    });
+}
+```
+
+É possível fazer update aninhado, ou seja, atualizar registros relacionados em uma única consulta.
+
+```typescript title="user.service.ts"
+async updateUserWithPosts(id: number, data: UpdateUserDto) {
+    return this.prisma.user.update({
+        where: { id },
+        data: {
+            name: data.name,
+            posts: {
+                update: data.posts.map(post => ({
+                    where: { id: post.id },
+                    data: { title: post.title, content: post.content },
+                })),
+            },
+        },
+    });
+}
+```
+
+
+
+### Implements
+
+Os `implements` são usados para garantir que uma classe siga uma interface específica. No NestJS, você pode usar `implements` para definir contratos para serviços, controladores ou outros componentes.
+
+```typescript title="user.service.ts"
+import { Injectable } from '@nestjs/common';
+import { IUserService } from './interfaces/user.service.interface';
+
+@Injectable()
+export class UserService implements IUserService {
+    // Implementação dos métodos da interface IUserService
+}
+```
