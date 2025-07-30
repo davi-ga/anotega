@@ -162,6 +162,26 @@ let numeros: number[] = [1, 2, 3, 4, 5];
 let nomes: Array<string> = ["João", "Maria", "Pedro"];
 ```
 
+#### Void
+
+O tipo `void` é usado para indicar que uma função não retorna um valor. É comum em funções que realizam efeitos colaterais, como imprimir no console ou modificar o estado de um objeto.
+
+```typescript
+function exibirMensagem(): void {
+  console.log("Olá, TypeScript!");
+}
+```
+
+#### Never
+
+O tipo `never` é usado para indicar que uma função nunca retorna um valor, seja porque lança uma exceção ou porque entra em um loop infinito. É útil para funções que não terminam normalmente.
+
+```typescript
+function erro(mensagem: string): never {
+  throw new Error(mensagem);
+}
+
+
 ### Funções
 
 As funções no TypeScript podem ter tipos de parâmetros e tipos de retorno definidos. Isso ajuda a garantir que as funções sejam chamadas com os tipos corretos de argumentos e que retornem os tipos esperados.
@@ -304,6 +324,31 @@ const usuario: UsuarioSemEmail = {
 
 };
 ```
+
+#### Pipe
+
+O Pipe é um operador do TypeScript que permite combinar tipos de forma mais flexível. Ele é usado para criar tipos que podem ser uma combinação de outros tipos, permitindo maior expressividade na definição de tipos.
+
+Pode ser chamado de `Union`
+
+```typescript
+type NumeroOuString = number | string;
+const valor: NumeroOuString = 42; // Pode ser um número
+const outroValor: NumeroOuString = "Olá"; // Ou uma string
+```
+
+#### Type Alias
+
+Os Type Aliases são uma forma de criar um novo nome para um tipo existente. Eles são úteis para simplificar a leitura do código e para criar tipos mais complexos.
+
+```typescript
+type ID = number | string;
+let usuarioId: ID = 123; // Pode ser um número
+usuarioId = "abc"; // Ou uma string
+```
+Os Type Aliases podem ser usados para criar tipos mais complexos, como uniões, interseções e tuplas.
+
+
 
 ## Package.json
 
