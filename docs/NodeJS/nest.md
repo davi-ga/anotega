@@ -380,6 +380,53 @@ export class ExampleController {
 
 ```
 
+## Pipes
+
+Os Pipes são usados para transformar e validar os dados das requisições antes que eles sejam processados pelos controladores. Eles podem ser usados para aplicar validações, transformações ou manipulações nos dados recebidos.
+
+Eles são classes que implementam a interface `PipeTransform` e podem ser usados para transformar ou validar os dados das requisições antes que eles sejam processados pelos controladores.
+
+```typescript title="validation.pipe.ts"
+import { Injectable, PipeTransform, ArgumentMetadata, BadRequestException } from '@nestjs/common';
+@Injectable()
+export class ValidationPipe implements PipeTransform {
+    transform(value: any, metadata: ArgumentMetadata) {
+        if (!value || typeof value !== 'object') {
+            throw new BadRequestException('Invalid data');
+        }
+        return value;
+    }
+}
+```
+```typescript title="example.controller.ts"
+import { Controller, Post, Body, UsePipes } from '@nestjs/common';
+import { ValidationPipe } from './validation.pipe';
+@Controller('example')
+export class ExampleController {
+    @Post()
+    @UsePipes(ValidationPipe)
+    createExample(@Body() createExampleDto: CreateExampleDto) {
+        return `Example created with data: ${JSON.stringify(createExampleDto)}`;
+    }
+}
+```
+
+### Parse
+
+Os Pipes de Parse são usados para transformar os dados das requisições em tipos específicos. Eles podem ser usados para converter strings em números, booleans ou outros tipos de dados.
+
+```typescript title="example.controller.ts"         
+import { Controller, Get, Param, UsePipes } from '@nestjs/common';
+import { ParseIntPipe } from './parse-int.pipe';
+@Controller('example')
+export class ExampleController {
+    @Get(':id')
+    getExample(@Param('id',ParseIntPipe) id: number) {
+        return `Example with ID: ${id}`;
+    }
+}
+```
+
 ## Prisma   
 
 O Prisma é um ORM (Object-Relational Mapping) moderno e poderoso para Node.js e TypeScript. Ele facilita a interação com bancos de dados relacionais, permitindo que você escreva consultas de forma intuitiva e segura.
@@ -566,3 +613,5 @@ export class UserService implements IUserService {
     // Implementação dos métodos da interface IUserService
 }
 ```
+
+## Parse

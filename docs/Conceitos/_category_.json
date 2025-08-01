@@ -1,0 +1,8 @@
+{
+  "label": "Conceitos da Computação", 
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Anotações sobre como configurar o ambiente de desenvolvimento, para que você possa começar a desenvolver aplicações tranquilamente."
+  }
+}
