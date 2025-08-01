@@ -54,13 +54,13 @@ O modelo OSI é um padrão de referência que define como os sistemas de rede de
 
 ### Camadas do Modelo OSI
 
-1. **Física**: Transmissão de bits através do meio físico
-2. **Enlace**: Controle de acesso ao meio e detecção de erros
-3. **Rede**: Roteamento de pacotes entre redes diferentes
-4. **Transporte**: Entrega confiável de dados fim a fim
-5. **Sessão**: Estabelecimento e gerenciamento de sessões
-6. **Apresentação**: Criptografia, compressão e formatação
-7. **Aplicação**: Interface com aplicações do usuário
+1. **Física**: Transmissão de bits através do meio físico (Cabo, fibra óptica, rádio)
+2. **Enlace**: Controle de acesso ao meio e detecção de erros (Switches)
+3. **Rede**: Roteamento de pacotes entre redes diferentes (Roteadores)
+4. **Transporte**: Entrega confiável de dados fim a fim (TCP, UDP)
+5. **Sessão**: Estabelecimento e gerenciamento de sessões (sockets)
+6. **Apresentação**: Criptografia, compressão e formatação (JSON, XML)
+7. **Aplicação**: Interface com aplicações do usuário (HTTP, FTP, DNS)
 
 ## Protocolos de Rede
 
