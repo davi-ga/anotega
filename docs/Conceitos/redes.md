@@ -62,6 +62,8 @@ O modelo OSI é um padrão de referência que define como os sistemas de rede de
 6. **Apresentação**: Criptografia, compressão e formatação (JSON, XML)
 7. **Aplicação**: Interface com aplicações do usuário (HTTP, FTP, DNS)
 
+![Modelo OSI](image.png)
+
 ## Protocolos de Rede
 
 ### TCP/IP
@@ -80,6 +82,12 @@ O modelo OSI é um padrão de referência que define como os sistemas de rede de
 - **IPv4**: Endereços de 32 bits (ex: 192.168.1.1)
 - **IPv6**: Endereços de 128 bits (ex: 2001:0db8:85a3::8a2e:0370:7334)
 - **Função**: Roteamento de pacotes entre redes
+
+O Modelo TCP/IP possui duas versões:
+
+![Modelo TCP/IP](image-1.png)
+
+![Modelo TCP/IP Internet](image-2.png)
 
 ### Protocolos de Aplicação
 
