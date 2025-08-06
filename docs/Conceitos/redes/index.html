@@ -4,13 +4,22 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.0.1">
 <title data-rh="true">Redes de Computadores | AnoteGA</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://davi-ga.github.io/anotega/img/BANNER.jpg"><meta data-rh="true" name="twitter:image" content="https://davi-ga.github.io/anotega/img/BANNER.jpg"><meta data-rh="true" property="og:url" content="https://davi-ga.github.io/anotega/docs/Conceitos/redes"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Redes de Computadores | AnoteGA"><meta data-rh="true" name="description" content="Introdução"><meta data-rh="true" property="og:description" content="Introdução"><link data-rh="true" rel="icon" href="/anotega/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://davi-ga.github.io/anotega/docs/Conceitos/redes"><link data-rh="true" rel="alternate" href="https://davi-ga.github.io/anotega/docs/Conceitos/redes" hreflang="en"><link data-rh="true" rel="alternate" href="https://davi-ga.github.io/anotega/docs/Conceitos/redes" hreflang="x-default"><link rel="stylesheet" href="/anotega/assets/css/styles.8b52a632.css">
-<script src="/anotega/assets/js/runtime~main.9ebdf32f.js" defer="defer"></script>
+<script src="/anotega/assets/js/runtime~main.f5300bb6.js" defer="defer"></script>
 <script src="/anotega/assets/js/main.05121ed6.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"dark")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/anotega/"><div class="navbar__logo"><img src="/anotega/img/logo.svg" alt="AnoteGA Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/anotega/img/logo.svg" alt="AnoteGA Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">AnoteGA</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/anotega/docs/category/conceitos-da-computação">Anotações</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/Davi-Ga" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently dark mode)" aria-label="Switch between dark and light mode (currently dark mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" aria-expanded="true" href="/anotega/docs/category/conceitos-da-computação">Conceitos da Computação</a><button aria-label="Collapse sidebar category &#x27;Conceitos da Computação&#x27;" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/anotega/docs/Conceitos/redes">Redes de Computadores</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/anotega/docs/category/configurando-o-ambiente-de-desenvolvimento">Configurando o ambiente de desenvolvimento</a><button aria-label="Expand sidebar category &#x27;Configurando o ambiente de desenvolvimento&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/anotega/docs/category/nodejs">NodeJS</a><button aria-label="Expand sidebar category &#x27;NodeJS&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/anotega/docs/category/creational-patterns">Creational Patterns</a><button aria-label="Expand sidebar category &#x27;Creational Patterns&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/anotega/docs/category/python">Python</a><button aria-label="Expand sidebar category &#x27;Python&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/anotega/docs/category/django">Django</a><button aria-label="Expand sidebar category &#x27;Django&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/anotega/docs/category/testes">Testes</a><button aria-label="Expand sidebar category &#x27;Testes&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/anotega/docs/category/machine-learning">Machine Learning</a><button aria-label="Expand sidebar category &#x27;Machine Learning&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/anotega/docs/category/erros">Erros</a><button aria-label="Expand sidebar category &#x27;Erros&#x27;" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/anotega/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/anotega/docs/category/conceitos-da-computação"><span itemprop="name">Conceitos da Computação</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Redes de Computadores</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1>Redes de Computadores</h1>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="introdução">Introdução<a href="#introdução" class="hash-link" aria-label="Direct link to Introdução" title="Direct link to Introdução">​</a></h2>
 <p>Redes de computadores são sistemas interconectados que permitem a comunicação entre dispositivos computacionais, possibilitando o compartilhamento de recursos, dados e serviços. Essas redes formam a base da internet moderna e são fundamentais para a computação distribuída.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="conceitos-fundamentais">Conceitos Fundamentais<a href="#conceitos-fundamentais" class="hash-link" aria-label="Direct link to Conceitos Fundamentais" title="Direct link to Conceitos Fundamentais">​</a></h3>
+<ul>
+<li><strong>Nó</strong>: Qualquer dispositivo conectado à rede (computador, servidor, roteador, etc.)</li>
+<li><strong>Link</strong>: Conexão física ou lógica entre dois nós</li>
+<li><strong>Protocolo</strong>: Conjunto de regras que governam a comunicação na rede</li>
+<li><strong>Largura de Banda</strong>: Capacidade máxima de transmissão de dados</li>
+<li><strong>Latência</strong>: Tempo necessário para um pacote viajar de origem ao destino</li>
+<li><strong>Throughput</strong>: Taxa real de transferência de dados alcançada</li>
+</ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="tipos-de-redes">Tipos de Redes<a href="#tipos-de-redes" class="hash-link" aria-label="Direct link to Tipos de Redes" title="Direct link to Tipos de Redes">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="por-abrangência-geográfica">Por Abrangência Geográfica<a href="#por-abrangência-geográfica" class="hash-link" aria-label="Direct link to Por Abrangência Geográfica" title="Direct link to Por Abrangência Geográfica">​</a></h3>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="lan-local-area-network">LAN (Local Area Network)<a href="#lan-local-area-network" class="hash-link" aria-label="Direct link to LAN (Local Area Network)" title="Direct link to LAN (Local Area Network)">​</a></h4>
@@ -55,12 +64,41 @@
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="topologia-mesh">Topologia Mesh<a href="#topologia-mesh" class="hash-link" aria-label="Direct link to Topologia Mesh" title="Direct link to Topologia Mesh">​</a></h4>
 <ul>
 <li><strong>Estrutura</strong>: Múltiplas conexões entre dispositivos</li>
+<li><strong>Tipos</strong>:<!-- -->
+<ul>
+<li><strong>Full Mesh</strong>: Cada nó conecta-se diretamente a todos os outros</li>
+<li><strong>Partial Mesh</strong>: Conexões seletivas baseadas em necessidades</li>
+</ul>
+</li>
 <li><strong>Vantagens</strong>: Alta redundância e confiabilidade</li>
 <li><strong>Desvantagens</strong>: Complexa e cara</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="topologia-híbrida">Topologia Híbrida<a href="#topologia-híbrida" class="hash-link" aria-label="Direct link to Topologia Híbrida" title="Direct link to Topologia Híbrida">​</a></h4>
+<ul>
+<li><strong>Estrutura</strong>: Combinação de duas ou mais topologias</li>
+<li><strong>Exemplo</strong>: Estrela-Barramento em redes corporativas</li>
+<li><strong>Vantagens</strong>: Flexibilidade e escalabilidade</li>
+<li><strong>Uso</strong>: Redes empresariais complexas</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="por-arquitetura-de-comunicação">Por Arquitetura de Comunicação<a href="#por-arquitetura-de-comunicação" class="hash-link" aria-label="Direct link to Por Arquitetura de Comunicação" title="Direct link to Por Arquitetura de Comunicação">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="cliente-servidor">Cliente-Servidor<a href="#cliente-servidor" class="hash-link" aria-label="Direct link to Cliente-Servidor" title="Direct link to Cliente-Servidor">​</a></h4>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Cliente1 ──┐</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Cliente2 ──┼── Servidor Central</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Cliente3 ──┘</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li><strong>Características</strong>: Servidor centralizado fornece serviços</li>
+<li><strong>Vantagens</strong>: Controle centralizado, backup simplificado</li>
+<li><strong>Desvantagens</strong>: Ponto único de falha, gargalo no servidor</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="peer-to-peer-p2p">Peer-to-Peer (P2P)<a href="#peer-to-peer-p2p" class="hash-link" aria-label="Direct link to Peer-to-Peer (P2P)" title="Direct link to Peer-to-Peer (P2P)">​</a></h4>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Peer1 ────── Peer2</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  │     ✕     │</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  │   /   \   │</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  │  /     \  │</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Peer4 ────── Peer3</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li><strong>Características</strong>: Todos os nós têm capacidades equivalentes</li>
+<li><strong>Vantagens</strong>: Sem ponto único de falha, escalabilidade</li>
+<li><strong>Exemplos</strong>: BitTorrent, blockchain, sistemas distribuídos</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="modelo-osi-open-systems-interconnection">Modelo OSI (Open Systems Interconnection)<a href="#modelo-osi-open-systems-interconnection" class="hash-link" aria-label="Direct link to Modelo OSI (Open Systems Interconnection)" title="Direct link to Modelo OSI (Open Systems Interconnection)">​</a></h2>
 <p>O modelo OSI é um padrão de referência que define como os sistemas de rede devem se comunicar.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="camadas-do-modelo-osi">Camadas do Modelo OSI<a href="#camadas-do-modelo-osi" class="hash-link" aria-label="Direct link to Camadas do Modelo OSI" title="Direct link to Camadas do Modelo OSI">​</a></h3>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">┌─────────────────────────┬──────────────────────┬─────────────────────┐</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│    CAMADA               │    FUNÇÃO            │    EXEMPLOS         │</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">├─────────────────────────┼──────────────────────┼─────────────────────┤</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│ 7. Aplicação            │ Interface usuário    │ HTTP, FTP, DNS      │</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">├─────────────────────────┼──────────────────────┼─────────────────────┤</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│ 6. Apresentação         │ Criptografia, comp.  │ SSL/TLS, JPEG       │</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">├─────────────────────────┼──────────────────────┼─────────────────────┤</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│ 5. Sessão               │ Gerenc. sessões      │ NetBIOS, RPC        │</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">├─────────────────────────┼──────────────────────┼─────────────────────┤</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│ 4. Transporte           │ Entrega fim-a-fim    │ TCP, UDP            │</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">├─────────────────────────┼──────────────────────┼─────────────────────┤</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│ 3. Rede                 │ Roteamento           │ IP, ICMP, OSPF      │</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">├─────────────────────────┼──────────────────────┼─────────────────────┤</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│ 2. Enlace               │ Controle de acesso   │ Ethernet, PPP       │</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">├─────────────────────────┼──────────────────────┼─────────────────────┤</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│ 1. Física               │ Transmissão bits     │ Cabo, Fibra, WiFi   │</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">└─────────────────────────┴──────────────────────┴─────────────────────┘</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <ol>
 <li><strong>Física</strong>: Transmissão de bits através do meio físico (Cabo, fibra óptica, rádio)</li>
 <li><strong>Enlace</strong>: Controle de acesso ao meio e detecção de erros (Switches)</li>
@@ -71,25 +109,57 @@
 <li><strong>Aplicação</strong>: Interface com aplicações do usuário (HTTP, FTP, DNS)</li>
 </ol>
 <p><img loading="lazy" alt="Modelo OSI" src="/anotega/assets/images/image-77438d4f19ef9a0161b329a7108ab988.png" width="391" height="565" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="encapsulamento-de-dados">Encapsulamento de Dados<a href="#encapsulamento-de-dados" class="hash-link" aria-label="Direct link to Encapsulamento de Dados" title="Direct link to Encapsulamento de Dados">​</a></h3>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">┌─ Aplicação ────────────────────────────────────────────┐</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│ Dados da Aplicação                                     │</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">├─ Transporte ───────────────────────────────────────────┤</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│ Cabeçalho TCP/UDP | Dados da Aplicação                 │</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">├─ Rede ─────────────────────────────────────────────────┤</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│ Cabeçalho IP | Cabeçalho TCP/UDP | Dados Aplicação    │</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">├─ Enlace ───────────────────────────────────────────────┤</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">│ Cab. Ethernet | Cab. IP | Cab. TCP/UDP | Dados | FCS   │</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">└────────────────────────────────────────────────────────┘</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="protocolos-de-rede">Protocolos de Rede<a href="#protocolos-de-rede" class="hash-link" aria-label="Direct link to Protocolos de Rede" title="Direct link to Protocolos de Rede">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="tcpip">TCP/IP<a href="#tcpip" class="hash-link" aria-label="Direct link to TCP/IP" title="Direct link to TCP/IP">​</a></h3>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="tcp-transmission-control-protocol">TCP (Transmission Control Protocol)<a href="#tcp-transmission-control-protocol" class="hash-link" aria-label="Direct link to TCP (Transmission Control Protocol)" title="Direct link to TCP (Transmission Control Protocol)">​</a></h4>
 <ul>
 <li><strong>Características</strong>: Confiável, orientado à conexão</li>
 <li><strong>Uso</strong>: Aplicações que requerem entrega garantida (HTTP, FTP, SSH)</li>
-<li><strong>Funcionalidades</strong>: Controle de fluxo, detecção e correção de erros</li>
+<li><strong>Funcionalidades</strong>:<!-- -->
+<ul>
+<li>Controle de fluxo</li>
+<li>Detecção e correção de erros</li>
+<li>Ordenação de pacotes</li>
+<li>Controle de congestionamento</li>
 </ul>
+</li>
+</ul>
+<p><strong>Three-Way Handshake (Estabelecimento de Conexão TCP):</strong></p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Cliente                    Servidor</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">   │                          │</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">   ├─── SYN (seq=x) ─────────&gt;│</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">   │&lt;── SYN-ACK (seq=y,ack=x+1)│</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">   ├─── ACK (ack=y+1) ───────&gt;│</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">   │                          │</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">   │    Conexão Estabelecida   │</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="udp-user-datagram-protocol">UDP (User Datagram Protocol)<a href="#udp-user-datagram-protocol" class="hash-link" aria-label="Direct link to UDP (User Datagram Protocol)" title="Direct link to UDP (User Datagram Protocol)">​</a></h4>
 <ul>
 <li><strong>Características</strong>: Não confiável, sem conexão</li>
 <li><strong>Uso</strong>: Aplicações em tempo real (streaming, jogos, DNS)</li>
 <li><strong>Vantagens</strong>: Menor overhead, maior velocidade</li>
+<li><strong>Estrutura do cabeçalho</strong>: Apenas 8 bytes vs 20+ bytes do TCP</li>
 </ul>
+<p><strong>Comparação TCP vs UDP:</strong></p>
+<table><thead><tr><th>Aspecto</th><th>TCP</th><th>UDP</th></tr></thead><tbody><tr><td>Confiabilidade</td><td>Alta</td><td>Baixa</td></tr><tr><td>Velocidade</td><td>Menor</td><td>Maior</td></tr><tr><td>Overhead</td><td>Alto</td><td>Baixo</td></tr><tr><td>Controle de fluxo</td><td>Sim</td><td>Não</td></tr><tr><td>Ordenação</td><td>Sim</td><td>Não</td></tr><tr><td>Uso típico</td><td>HTTP, SMTP, FTP</td><td>DNS, DHCP, Gaming</td></tr></tbody></table>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="ip-internet-protocol">IP (Internet Protocol)<a href="#ip-internet-protocol" class="hash-link" aria-label="Direct link to IP (Internet Protocol)" title="Direct link to IP (Internet Protocol)">​</a></h4>
+<p><strong>Estrutura do Cabeçalho IPv4:</strong></p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain"> 0                   1                   2                   3</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">|Version|  IHL  |Type of Service|          Total Length         |</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">|         Identification        |Flags|      Fragment Offset    |</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">|  Time to Live |    Protocol   |         Header Checksum       |</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">|                       Source Address                          |</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">|                    Destination Address                        |</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <ul>
-<li><strong>IPv4</strong>: Endereços de 32 bits (ex: 192.168.1.1)</li>
-<li><strong>IPv6</strong>: Endereços de 128 bits (ex: 2001:0db8:85a3::8a2e:0370:7334)</li>
+<li><strong>IPv4</strong>: Endereços de 32 bits (ex: 192.168.1.1)<!-- -->
+<ul>
+<li><strong>Limitação</strong>: ~4.3 bilhões de endereços</li>
+<li><strong>Esgotamento</strong>: Problema atual da internet</li>
+</ul>
+</li>
+<li><strong>IPv6</strong>: Endereços de 128 bits (ex: 2001:0db8:85a3::8a2e:0370:7334)<!-- -->
+<ul>
+<li><strong>Capacidade</strong>: 340 undecilhões de endereços</li>
+<li><strong>Recursos</strong>: Autoconfiguração, IPSec nativo, QoS melhorado</li>
+</ul>
+</li>
 <li><strong>Função</strong>: Roteamento de pacotes entre redes</li>
+</ul>
+<p><strong>Migração IPv4 para IPv6:</strong></p>
+<ul>
+<li><strong>Dual Stack</strong>: Suporte simultâneo a IPv4 e IPv6</li>
+<li><strong>Tunneling</strong>: Encapsulamento IPv6 em IPv4</li>
+<li><strong>NAT64</strong>: Tradução entre IPv4 e IPv6</li>
 </ul>
 <p>O Modelo TCP/IP possui duas versões:</p>
 <p><img loading="lazy" alt="Modelo TCP/IP" src="/anotega/assets/images/image-1-9cc1df05592bfc407e6646e94e451e0f.png" width="352" height="569" class="img_ev3q"></p>
@@ -111,7 +181,56 @@
 <ul>
 <li><strong>Função</strong>: Tradução de nomes de domínio para endereços IP</li>
 <li><strong>Porta</strong>: 53</li>
-<li><strong>Tipos de registro</strong>: A, AAAA, CNAME, MX, NS</li>
+<li><strong>Tipos de registro</strong>:<!-- -->
+<ul>
+<li><strong>A</strong>: IPv4 address</li>
+<li><strong>AAAA</strong>: IPv6 address</li>
+<li><strong>CNAME</strong>: Canonical name (alias)</li>
+<li><strong>MX</strong>: Mail exchange</li>
+<li><strong>NS</strong>: Name server</li>
+<li><strong>PTR</strong>: Pointer (reverse DNS)</li>
+<li><strong>TXT</strong>: Text record</li>
+<li><strong>SRV</strong>: Service record</li>
+</ul>
+</li>
+</ul>
+<p><strong>Hierarquia DNS:</strong></p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">                    . (root)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">                   / | \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">                  /  |  \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">               com   org  net   edu   gov</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">              /  |   |    |      |     |</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">           google amazon     mit   nasa</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">           /    |      \</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">         www   mail    ftp</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><strong>Processo de Resolução DNS:</strong></p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">1. Cliente → Resolver Local (cache)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">2. Resolver → Root Server → .com Server</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">3. .com Server → Authoritative Server</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">4. Retorno com endereço IP</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="dhcp-dynamic-host-configuration-protocol">DHCP (Dynamic Host Configuration Protocol)<a href="#dhcp-dynamic-host-configuration-protocol" class="hash-link" aria-label="Direct link to DHCP (Dynamic Host Configuration Protocol)" title="Direct link to DHCP (Dynamic Host Configuration Protocol)">​</a></h4>
+<ul>
+<li><strong>Função</strong>: Atribuição automática de configurações IP</li>
+<li><strong>Porta</strong>: 67 (servidor), 68 (cliente)</li>
+<li><strong>Processo DORA</strong>:<!-- -->
+<ol>
+<li><strong>Discover</strong>: Cliente procura servidores DHCP</li>
+<li><strong>Offer</strong>: Servidor oferece configuração</li>
+<li><strong>Request</strong>: Cliente solicita configuração específica</li>
+<li><strong>Acknowledge</strong>: Servidor confirma atribuição</li>
+</ol>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="smtppop3imap-email">SMTP/POP3/IMAP (Email)<a href="#smtppop3imap-email" class="hash-link" aria-label="Direct link to SMTP/POP3/IMAP (Email)" title="Direct link to SMTP/POP3/IMAP (Email)">​</a></h4>
+<ul>
+<li><strong>SMTP</strong> (Simple Mail Transfer Protocol):<!-- -->
+<ul>
+<li><strong>Porta</strong>: 25, 587 (submission), 465 (SSL)</li>
+<li><strong>Função</strong>: Envio de emails</li>
+</ul>
+</li>
+<li><strong>POP3</strong> (Post Office Protocol v3):<!-- -->
+<ul>
+<li><strong>Porta</strong>: 110, 995 (SSL)</li>
+<li><strong>Características</strong>: Download e remoção do servidor</li>
+</ul>
+</li>
+<li><strong>IMAP</strong> (Internet Message Access Protocol):<!-- -->
+<ul>
+<li><strong>Porta</strong>: 143, 993 (SSL)</li>
+<li><strong>Características</strong>: Sincronização entre dispositivos</li>
+</ul>
+</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="dispositivos-de-rede">Dispositivos de Rede<a href="#dispositivos-de-rede" class="hash-link" aria-label="Direct link to Dispositivos de Rede" title="Direct link to Dispositivos de Rede">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="hub">Hub<a href="#hub" class="hash-link" aria-label="Direct link to Hub" title="Direct link to Hub">​</a></h3>
@@ -123,20 +242,88 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="switch">Switch<a href="#switch" class="hash-link" aria-label="Direct link to Switch" title="Direct link to Switch">​</a></h3>
 <ul>
 <li><strong>Função</strong>: Conecta dispositivos em uma LAN</li>
-<li><strong>Características</strong>: Opera na camada de enlace, aprendizado de MAC</li>
-<li><strong>Vantagens</strong>: Cada porta é um domínio de colisão separado</li>
+<li><strong>Características</strong>:<!-- -->
+<ul>
+<li>Opera na camada de enlace (Layer 2)</li>
+<li>Aprendizado de endereços MAC</li>
+<li>Construção dinâmica da tabela MAC</li>
 </ul>
+</li>
+<li><strong>Vantagens</strong>: Cada porta é um domínio de colisão separado</li>
+<li><strong>Recursos Avançados</strong>:<!-- -->
+<ul>
+<li><strong>VLANs</strong>: Segmentação lógica da rede</li>
+<li><strong>STP</strong>: Spanning Tree Protocol para evitar loops</li>
+<li><strong>Port Security</strong>: Controle de acesso por porta</li>
+<li><strong>QoS</strong>: Quality of Service para priorização de tráfego</li>
+</ul>
+</li>
+</ul>
+<p><strong>Tabela MAC:</strong></p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">MAC Address       | Port | VLAN | Age</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">00:11:22:33:44:55 |  1   |  10  | 120s</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">AA:BB:CC:DD:EE:FF |  3   |  20  | 85s</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="roteador">Roteador<a href="#roteador" class="hash-link" aria-label="Direct link to Roteador" title="Direct link to Roteador">​</a></h3>
 <ul>
 <li><strong>Função</strong>: Conecta diferentes redes e roteia pacotes</li>
-<li><strong>Características</strong>: Opera na camada de rede, tabela de roteamento</li>
-<li><strong>Protocolos</strong>: RIP, OSPF, BGP</li>
+<li><strong>Características</strong>:<!-- -->
+<ul>
+<li>Opera na camada de rede (Layer 3)</li>
+<li>Mantém tabela de roteamento</li>
+<li>Toma decisões baseadas em endereços IP</li>
 </ul>
+</li>
+<li><strong>Protocolos de Roteamento</strong>:<!-- -->
+<ul>
+<li><strong>RIP</strong>: Distance Vector, máx. 15 hops</li>
+<li><strong>OSPF</strong>: Link State, convergência rápida</li>
+<li><strong>BGP</strong>: Path Vector, usado na internet</li>
+<li><strong>EIGRP</strong>: Híbrido, proprietário Cisco</li>
+</ul>
+</li>
+</ul>
+<p><strong>Tabela de Roteamento:</strong></p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Destination    | Next Hop      | Interface | Metric</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">192.168.1.0/24 | 0.0.0.0      | eth0      | 0</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">10.0.0.0/8     | 192.168.1.1  | eth0      | 1</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">0.0.0.0/0      | 203.0.113.1  | eth1      | 1</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="access-point-ap">Access Point (AP)<a href="#access-point-ap" class="hash-link" aria-label="Direct link to Access Point (AP)" title="Direct link to Access Point (AP)">​</a></h3>
 <ul>
 <li><strong>Função</strong>: Fornece acesso wireless à rede</li>
-<li><strong>Padrões</strong>: 802.11a/b/g/n/ac/ax (Wi-Fi 6)</li>
-<li><strong>Segurança</strong>: WPA2, WPA3</li>
+<li><strong>Padrões IEEE 802.11</strong>:<!-- -->
+<ul>
+<li><strong>802.11a</strong>: 5GHz, até 54 Mbps</li>
+<li><strong>802.11b</strong>: 2.4GHz, até 11 Mbps</li>
+<li><strong>802.11g</strong>: 2.4GHz, até 54 Mbps</li>
+<li><strong>802.11n</strong> (Wi-Fi 4): Dual-band, até 600 Mbps, MIMO</li>
+<li><strong>802.11ac</strong> (Wi-Fi 5): 5GHz, até 3.5 Gbps, MU-MIMO</li>
+<li><strong>802.11ax</strong> (Wi-Fi 6): Dual-band, até 9.6 Gbps, OFDMA</li>
+</ul>
+</li>
+<li><strong>Segurança</strong>: WEP (obsoleto), WPA, WPA2, WPA3</li>
+</ul>
+<p><strong>Comparação Wi-Fi:</strong></p>
+<table><thead><tr><th>Padrão</th><th>Frequência</th><th>Vel. Máx</th><th>Ano</th><th>Recursos</th></tr></thead><tbody><tr><td>802.11ax</td><td>2.4/5/6 GHz</td><td>9.6 Gbps</td><td>2019</td><td>OFDMA, Target Wake Time</td></tr><tr><td>802.11ac</td><td>5 GHz</td><td>3.5 Gbps</td><td>2013</td><td>MU-MIMO, Beamforming</td></tr><tr><td>802.11n</td><td>2.4/5 GHz</td><td>600 Mbps</td><td>2009</td><td>MIMO, Channel Bonding</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="firewall">Firewall<a href="#firewall" class="hash-link" aria-label="Direct link to Firewall" title="Direct link to Firewall">​</a></h3>
+<ul>
+<li><strong>Função</strong>: Controla tráfego baseado em regras de segurança</li>
+<li><strong>Tipos</strong>:<!-- -->
+<ul>
+<li><strong>Packet Filtering</strong>: Filtra baseado em cabeçalhos</li>
+<li><strong>Stateful Inspection</strong>: Mantém estado das conexões</li>
+<li><strong>Application Layer</strong>: Inspeção profunda de pacotes</li>
+<li><strong>Next-Gen Firewall (NGFW)</strong>: IPS, antimalware, controle de aplicações</li>
+</ul>
+</li>
+<li><strong>Implementação</strong>: Hardware dedicado, software, baseado em nuvem</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="load-balancer">Load Balancer<a href="#load-balancer" class="hash-link" aria-label="Direct link to Load Balancer" title="Direct link to Load Balancer">​</a></h3>
+<ul>
+<li><strong>Função</strong>: Distribui tráfego entre múltiplos servidores</li>
+<li><strong>Algoritmos</strong>:<!-- -->
+<ul>
+<li><strong>Round Robin</strong>: Distribuição sequencial</li>
+<li><strong>Least Connections</strong>: Servidor com menos conexões ativas</li>
+<li><strong>IP Hash</strong>: Baseado no hash do IP do cliente</li>
+<li><strong>Weighted</strong>: Distribuição baseada em pesos</li>
+</ul>
+</li>
+<li><strong>Tipos</strong>: Layer 4 (transporte), Layer 7 (aplicação)</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="endereçamento-ip">Endereçamento IP<a href="#endereçamento-ip" class="hash-link" aria-label="Direct link to Endereçamento IP" title="Direct link to Endereçamento IP">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="classes-de-endereços-ipv4">Classes de Endereços IPv4<a href="#classes-de-endereços-ipv4" class="hash-link" aria-label="Direct link to Classes de Endereços IPv4" title="Direct link to Classes de Endereços IPv4">​</a></h3>
@@ -164,14 +351,40 @@
 <li><strong>172.16.0.0/12</strong>: Classe B privada</li>
 <li><strong>192.168.0.0/16</strong>: Classe C privada</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cidr-classless-inter-domain-routing">CIDR (Classless Inter-Domain Routing)<a href="#cidr-classless-inter-domain-routing" class="hash-link" aria-label="Direct link to CIDR (Classless Inter-Domain Routing)" title="Direct link to CIDR (Classless Inter-Domain Routing)">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="subnetting-e-vlsm">Subnetting e VLSM<a href="#subnetting-e-vlsm" class="hash-link" aria-label="Direct link to Subnetting e VLSM" title="Direct link to Subnetting e VLSM">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="subnetting-básico">Subnetting Básico<a href="#subnetting-básico" class="hash-link" aria-label="Direct link to Subnetting Básico" title="Direct link to Subnetting Básico">​</a></h4>
+<p><strong>Exemplo: Dividir 192.168.1.0/24 em 4 subredes:</strong></p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Rede Original: 192.168.1.0/24 (256 IPs)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">├─ Subrede 1: 192.168.1.0/26   (64 IPs: .0-.63)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">├─ Subrede 2: 192.168.1.64/26  (64 IPs: .64-.127)  </span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">├─ Subrede 3: 192.168.1.128/26 (64 IPs: .128-.191)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">└─ Subrede 4: 192.168.1.192/26 (64 IPs: .192-.255)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="vlsm-variable-length-subnet-masking">VLSM (Variable Length Subnet Masking)<a href="#vlsm-variable-length-subnet-masking" class="hash-link" aria-label="Direct link to VLSM (Variable Length Subnet Masking)" title="Direct link to VLSM (Variable Length Subnet Masking)">​</a></h4>
+<p><strong>Exemplo: Empresa com diferentes departamentos:</strong></p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Departamento | Hosts Necessários | Subrede | Máscara | IPs Disponíveis</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">TI           | 100              | /25     | .0-.127 | 126</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Vendas       | 50               | /26     | .128-.191 | 62</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">RH           | 25               | /27     | .192-.223 | 30</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Direção      | 10               | /28     | .224-.239 | 14</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="endereços-especiais">Endereços Especiais<a href="#endereços-especiais" class="hash-link" aria-label="Direct link to Endereços Especiais" title="Direct link to Endereços Especiais">​</a></h3>
 <ul>
-<li><strong>Conceito</strong>: Notação que permite subnetting flexível</li>
-<li><strong>Formato</strong>: Endereço/Prefixo (ex: 192.168.1.0/24)</li>
-<li><strong>Vantagem</strong>: Uso mais eficiente do espaço de endereços</li>
+<li><strong>127.0.0.1</strong>: Loopback (localhost)</li>
+<li><strong>0.0.0.0</strong>: Rota padrão ou endereço não especificado</li>
+<li><strong>255.255.255.255</strong>: Broadcast limitado</li>
+<li><strong>169.254.x.x</strong>: APIPA (Automatic Private IP Addressing)</li>
+<li><strong>224.0.0.0 - 239.255.255.255</strong>: Multicast (Classe D)</li>
+<li><strong>240.0.0.0 - 255.255.255.255</strong>: Reservado (Classe E)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="nat-network-address-translation">NAT (Network Address Translation)<a href="#nat-network-address-translation" class="hash-link" aria-label="Direct link to NAT (Network Address Translation)" title="Direct link to NAT (Network Address Translation)">​</a></h3>
+<p><strong>Tipos de NAT:</strong></p>
+<ul>
+<li><strong>Static NAT</strong>: Mapeamento 1:1 fixo</li>
+<li><strong>Dynamic NAT</strong>: Pool de endereços públicos</li>
+<li><strong>PAT/NAPT</strong>: Port Address Translation (mais comum)</li>
+</ul>
+<p><strong>Exemplo PAT:</strong></p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Rede Interna          |  NAT Router  |  Internet</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">192.168.1.10:1234 ────┼──────────────┼──&gt; 203.0.113.1:5001</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">192.168.1.11:5678 ────┼──────────────┼──&gt; 203.0.113.1:5002</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">192.168.1.12:8080 ────┼──────────────┼──&gt; 203.0.113.1:5003</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><strong>Problemas do NAT:</strong></p>
+<ul>
+<li>Quebra da conectividade fim-a-fim</li>
+<li>Problemas com protocolos que carregam endereços IP</li>
+<li>Dificuldades com P2P e jogos online</li>
+<li>Limitações para servidores internos</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="segurança-de-redes">Segurança de Redes<a href="#segurança-de-redes" class="hash-link" aria-label="Direct link to Segurança de Redes" title="Direct link to Segurança de Redes">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="firewall">Firewall<a href="#firewall" class="hash-link" aria-label="Direct link to Firewall" title="Direct link to Firewall">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="firewall-1">Firewall<a href="#firewall-1" class="hash-link" aria-label="Direct link to Firewall" title="Direct link to Firewall">​</a></h3>
 <ul>
 <li><strong>Função</strong>: Controla tráfego baseado em regras de segurança</li>
 <li><strong>Tipos</strong>: Packet filtering, stateful, application-layer</li>
@@ -180,14 +393,79 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="vpn-virtual-private-network">VPN (Virtual Private Network)<a href="#vpn-virtual-private-network" class="hash-link" aria-label="Direct link to VPN (Virtual Private Network)" title="Direct link to VPN (Virtual Private Network)">​</a></h3>
 <ul>
 <li><strong>Função</strong>: Cria túnel seguro através de rede pública</li>
-<li><strong>Protocolos</strong>: OpenVPN, IPSec, L2TP, WireGuard</li>
-<li><strong>Uso</strong>: Acesso remoto seguro, conexão entre filiais</li>
+<li><strong>Protocolos</strong>:<!-- -->
+<ul>
+<li><strong>OpenVPN</strong>: Open source, flexível, baseado em SSL/TLS</li>
+<li><strong>IPSec</strong>: Padrão industrial, integrado ao kernel</li>
+<li><strong>L2TP</strong>: Layer 2 Tunneling Protocol</li>
+<li><strong>WireGuard</strong>: Moderno, simples, alta performance</li>
+<li><strong>SSTP</strong>: Secure Socket Tunneling Protocol (Microsoft)</li>
+</ul>
+</li>
+<li><strong>Tipos</strong>:<!-- -->
+<ul>
+<li><strong>Site-to-Site</strong>: Conecta duas redes corporativas</li>
+<li><strong>Remote Access</strong>: Usuários remotos acessam rede corporativa</li>
+<li><strong>Client-to-Client</strong>: Conexão direta entre clientes</li>
+</ul>
+</li>
+</ul>
+<p><strong>Arquitetura VPN Site-to-Site:</strong></p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Filial A                    Internet                    Matriz</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">[LAN] ──── [VPN Gateway] ════════════════ [VPN Gateway] ──── [LAN]</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">192.168.1.0/24           Túnel Criptografado           10.0.0.0/24</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="idsips-intrusion-detectionprevention-systems">IDS/IPS (Intrusion Detection/Prevention Systems)<a href="#idsips-intrusion-detectionprevention-systems" class="hash-link" aria-label="Direct link to IDS/IPS (Intrusion Detection/Prevention Systems)" title="Direct link to IDS/IPS (Intrusion Detection/Prevention Systems)">​</a></h3>
+<ul>
+<li><strong>IDS</strong>: Detecta e alerta sobre atividades suspeitas</li>
+<li><strong>IPS</strong>: Detecta e bloqueia automaticamente ameaças</li>
+<li><strong>Tipos</strong>:<!-- -->
+<ul>
+<li><strong>NIDS/NIPS</strong>: Network-based (monitora tráfego de rede)</li>
+<li><strong>HIDS/HIPS</strong>: Host-based (monitora sistema específico)</li>
+</ul>
+</li>
+<li><strong>Métodos de Detecção</strong>:<!-- -->
+<ul>
+<li><strong>Signature-based</strong>: Padrões conhecidos de ataques</li>
+<li><strong>Anomaly-based</strong>: Desvios do comportamento normal</li>
+<li><strong>Heuristic</strong>: Análise comportamental avançada</li>
+</ul>
+</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="criptografia">Criptografia<a href="#criptografia" class="hash-link" aria-label="Direct link to Criptografia" title="Direct link to Criptografia">​</a></h3>
 <ul>
-<li><strong>Simétrica</strong>: Mesma chave para cifrar e decifrar (AES)</li>
-<li><strong>Assimétrica</strong>: Par de chaves pública/privada (RSA)</li>
-<li><strong>Hash</strong>: Função unidirecional para integridade (SHA-256)</li>
+<li><strong>Simétrica</strong>:<!-- -->
+<ul>
+<li>Mesma chave para cifrar e decifrar</li>
+<li><strong>Algoritmos</strong>: AES, DES, 3DES, ChaCha20</li>
+<li><strong>Uso</strong>: Criptografia de dados em massa</li>
+</ul>
+</li>
+<li><strong>Assimétrica</strong>:<!-- -->
+<ul>
+<li>Par de chaves pública/privada</li>
+<li><strong>Algoritmos</strong>: RSA, ECC, DSA</li>
+<li><strong>Uso</strong>: Troca de chaves, assinaturas digitais</li>
+</ul>
+</li>
+<li><strong>Hash</strong>:<!-- -->
+<ul>
+<li>Função unidirecional para integridade</li>
+<li><strong>Algoritmos</strong>: SHA-256, SHA-3, BLAKE2</li>
+<li><strong>Uso</strong>: Verificação de integridade, senhas</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="zero-trust-architecture">Zero Trust Architecture<a href="#zero-trust-architecture" class="hash-link" aria-label="Direct link to Zero Trust Architecture" title="Direct link to Zero Trust Architecture">​</a></h3>
+<ul>
+<li><strong>Princípio</strong>: &quot;Nunca confie, sempre verifique&quot;</li>
+<li><strong>Componentes</strong>:<!-- -->
+<ul>
+<li><strong>Identity Verification</strong>: Autenticação multifator</li>
+<li><strong>Device Compliance</strong>: Verificação de dispositivos</li>
+<li><strong>Application Security</strong>: Microsegmentação</li>
+<li><strong>Network Segmentation</strong>: Acesso baseado em contexto</li>
+</ul>
+</li>
+<li><strong>Implementação</strong>: Gradual, baseada em políticas</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="troubleshooting-de-rede">Troubleshooting de Rede<a href="#troubleshooting-de-rede" class="hash-link" aria-label="Direct link to Troubleshooting de Rede" title="Direct link to Troubleshooting de Rede">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="comandos-úteis">Comandos Úteis<a href="#comandos-úteis" class="hash-link" aria-label="Direct link to Comandos Úteis" title="Direct link to Comandos Úteis">​</a></h3>
@@ -248,7 +526,7 @@
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="recursos-complementares">Recursos Complementares<a href="#recursos-complementares" class="hash-link" aria-label="Direct link to Recursos Complementares" title="Direct link to Recursos Complementares">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-referências-e-documentação">📚 Referências e Documentação<a href="#-referências-e-documentação" class="hash-link" aria-label="Direct link to 📚 Referências e Documentação" title="Direct link to 📚 Referências e Documentação">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="documentação-oficial">Documentação Oficial<a href="#documenta ção-oficial" class="hash-link" aria-label="Direct link to Documentação Oficial" title="Direct link to Documentação Oficial">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="documentação-oficial">Documentação Oficial<a href="#documentação-oficial" class="hash-link" aria-label="Direct link to Documentação Oficial" title="Direct link to Documentação Oficial">​</a></h4>
 <ul>
 <li><a href="https://tools.ietf.org/html/rfc791" target="_blank" rel="noopener noreferrer">RFC 791 - Internet Protocol</a></li>
 <li><a href="https://tools.ietf.org/html/rfc793" target="_blank" rel="noopener noreferrer">RFC 793 - Transmission Control Protocol</a></li>
@@ -269,7 +547,7 @@
 <li><a href="https://www.youtube.com/watch?v=KOrWZnGbx7s" target="_blank" rel="noopener noreferrer">Modelo OSI e TCP/IP - Explicação Completa</a></li>
 <li><a href="https://www.youtube.com/watch?v=G-m-iP1Ql6k" target="_blank" rel="noopener noreferrer">Endereçamento IP e Subnetting</a></li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="configuração-e-administração">Configuração e Administração<a href="#configuração-e-administração" class="hash-link" aria-label="Direct link to Configuração e Administração" title="Direct link to Configuração e Administração">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="configuração-e-administra ção">Configuração e Administração<a href="#configuração-e-administração" class="hash-link" aria-label="Direct link to Configuração e Administração" title="Direct link to Configuração e Administração">​</a></h4>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=M_ICLwuP8NQ" target="_blank" rel="noopener noreferrer">Configuração de Roteadores Cisco</a></li>
 <li><a href="https://www.youtube.com/watch?v=7kVemWNDUIo" target="_blank" rel="noopener noreferrer">Switches: VLANs e Spanning Tree</a></li>
@@ -326,6 +604,6 @@
 <li><strong>CISSP</strong>: Certified Information Systems Security Professional</li>
 <li><strong>CEH</strong>: Certified Ethical Hacker</li>
 <li><strong>JNCIA</strong>: Juniper Networks Certified Associate</li>
-</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Conceitos/redes.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/anotega/docs/category/conceitos-da-computação"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Conceitos da Computação</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/anotega/docs/category/configurando-o-ambiente-de-desenvolvimento"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Configurando o ambiente de desenvolvimento</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#introdução" class="table-of-contents__link toc-highlight">Introdução</a></li><li><a href="#tipos-de-redes" class="table-of-contents__link toc-highlight">Tipos de Redes</a><ul><li><a href="#por-abrangência-geográfica" class="table-of-contents__link toc-highlight">Por Abrangência Geográfica</a></li><li><a href="#por-topologia" class="table-of-contents__link toc-highlight">Por Topologia</a></li></ul></li><li><a href="#modelo-osi-open-systems-interconnection" class="table-of-contents__link toc-highlight">Modelo OSI (Open Systems Interconnection)</a><ul><li><a href="#camadas-do-modelo-osi" class="table-of-contents__link toc-highlight">Camadas do Modelo OSI</a></li></ul></li><li><a href="#protocolos-de-rede" class="table-of-contents__link toc-highlight">Protocolos de Rede</a><ul><li><a href="#tcpip" class="table-of-contents__link toc-highlight">TCP/IP</a></li><li><a href="#protocolos-de-aplicação" class="table-of-contents__link toc-highlight">Protocolos de Aplicação</a></li></ul></li><li><a href="#dispositivos-de-rede" class="table-of-contents__link toc-highlight">Dispositivos de Rede</a><ul><li><a href="#hub" class="table-of-contents__link toc-highlight">Hub</a></li><li><a href="#switch" class="table-of-contents__link toc-highlight">Switch</a></li><li><a href="#roteador" class="table-of-contents__link toc-highlight">Roteador</a></li><li><a href="#access-point-ap" class="table-of-contents__link toc-highlight">Access Point (AP)</a></li></ul></li><li><a href="#endereçamento-ip" class="table-of-contents__link toc-highlight">Endereçamento IP</a><ul><li><a href="#classes-de-endereços-ipv4" class="table-of-contents__link toc-highlight">Classes de Endereços IPv4</a></li><li><a href="#endereços-privados" class="table-of-contents__link toc-highlight">Endereços Privados</a></li><li><a href="#cidr-classless-inter-domain-routing" class="table-of-contents__link toc-highlight">CIDR (Classless Inter-Domain Routing)</a></li></ul></li><li><a href="#segurança-de-redes" class="table-of-contents__link toc-highlight">Segurança de Redes</a><ul><li><a href="#firewall" class="table-of-contents__link toc-highlight">Firewall</a></li><li><a href="#vpn-virtual-private-network" class="table-of-contents__link toc-highlight">VPN (Virtual Private Network)</a></li><li><a href="#criptografia" class="table-of-contents__link toc-highlight">Criptografia</a></li></ul></li><li><a href="#troubleshooting-de-rede" class="table-of-contents__link toc-highlight">Troubleshooting de Rede</a><ul><li><a href="#comandos-úteis" class="table-of-contents__link toc-highlight">Comandos Úteis</a></li><li><a href="#problemas-comuns" class="table-of-contents__link toc-highlight">Problemas Comuns</a></li></ul></li><li><a href="#boas-práticas" class="table-of-contents__link toc-highlight">Boas Práticas</a><ul><li><a href="#documentação" class="table-of-contents__link toc-highlight">Documentação</a></li><li><a href="#monitoramento" class="table-of-contents__link toc-highlight">Monitoramento</a></li><li><a href="#segurança" class="table-of-contents__link toc-highlight">Segurança</a></li><li><a href="#performance-1" class="table-of-contents__link toc-highlight">Performance</a></li></ul></li><li><a href="#recursos-complementares" class="table-of-contents__link toc-highlight">Recursos Complementares</a><ul><li><a href="#-referências-e-documentação" class="table-of-contents__link toc-highlight">📚 Referências e Documentação</a></li><li><a href="#-conteúdo-audiovisual" class="table-of-contents__link toc-highlight">🎥 Conteúdo Audiovisual</a></li><li><a href="#️-ferramentas-práticas" class="table-of-contents__link toc-highlight">🛠️ Ferramentas Práticas</a></li><li><a href="#-certificações-relevantes" class="table-of-contents__link toc-highlight">🎯 Certificações Relevantes</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 DaviGA. Built with Docusaurus.</div></div></div></footer></div>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Conceitos/redes.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/anotega/docs/category/conceitos-da-computação"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Conceitos da Computação</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/anotega/docs/category/configurando-o-ambiente-de-desenvolvimento"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Configurando o ambiente de desenvolvimento</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#introdução" class="table-of-contents__link toc-highlight">Introdução</a><ul><li><a href="#conceitos-fundamentais" class="table-of-contents__link toc-highlight">Conceitos Fundamentais</a></li></ul></li><li><a href="#tipos-de-redes" class="table-of-contents__link toc-highlight">Tipos de Redes</a><ul><li><a href="#por-abrangência-geográfica" class="table-of-contents__link toc-highlight">Por Abrangência Geográfica</a></li><li><a href="#por-topologia" class="table-of-contents__link toc-highlight">Por Topologia</a></li><li><a href="#por-arquitetura-de-comunicação" class="table-of-contents__link toc-highlight">Por Arquitetura de Comunicação</a></li></ul></li><li><a href="#modelo-osi-open-systems-interconnection" class="table-of-contents__link toc-highlight">Modelo OSI (Open Systems Interconnection)</a><ul><li><a href="#camadas-do-modelo-osi" class="table-of-contents__link toc-highlight">Camadas do Modelo OSI</a></li><li><a href="#encapsulamento-de-dados" class="table-of-contents__link toc-highlight">Encapsulamento de Dados</a></li></ul></li><li><a href="#protocolos-de-rede" class="table-of-contents__link toc-highlight">Protocolos de Rede</a><ul><li><a href="#tcpip" class="table-of-contents__link toc-highlight">TCP/IP</a></li><li><a href="#protocolos-de-aplicação" class="table-of-contents__link toc-highlight">Protocolos de Aplicação</a></li></ul></li><li><a href="#dispositivos-de-rede" class="table-of-contents__link toc-highlight">Dispositivos de Rede</a><ul><li><a href="#hub" class="table-of-contents__link toc-highlight">Hub</a></li><li><a href="#switch" class="table-of-contents__link toc-highlight">Switch</a></li><li><a href="#roteador" class="table-of-contents__link toc-highlight">Roteador</a></li><li><a href="#access-point-ap" class="table-of-contents__link toc-highlight">Access Point (AP)</a></li><li><a href="#firewall" class="table-of-contents__link toc-highlight">Firewall</a></li><li><a href="#load-balancer" class="table-of-contents__link toc-highlight">Load Balancer</a></li></ul></li><li><a href="#endereçamento-ip" class="table-of-contents__link toc-highlight">Endereçamento IP</a><ul><li><a href="#classes-de-endereços-ipv4" class="table-of-contents__link toc-highlight">Classes de Endereços IPv4</a></li><li><a href="#endereços-privados" class="table-of-contents__link toc-highlight">Endereços Privados</a></li><li><a href="#subnetting-e-vlsm" class="table-of-contents__link toc-highlight">Subnetting e VLSM</a></li><li><a href="#endereços-especiais" class="table-of-contents__link toc-highlight">Endereços Especiais</a></li><li><a href="#nat-network-address-translation" class="table-of-contents__link toc-highlight">NAT (Network Address Translation)</a></li></ul></li><li><a href="#segurança-de-redes" class="table-of-contents__link toc-highlight">Segurança de Redes</a><ul><li><a href="#firewall-1" class="table-of-contents__link toc-highlight">Firewall</a></li><li><a href="#vpn-virtual-private-network" class="table-of-contents__link toc-highlight">VPN (Virtual Private Network)</a></li><li><a href="#idsips-intrusion-detectionprevention-systems" class="table-of-contents__link toc-highlight">IDS/IPS (Intrusion Detection/Prevention Systems)</a></li><li><a href="#criptografia" class="table-of-contents__link toc-highlight">Criptografia</a></li><li><a href="#zero-trust-architecture" class="table-of-contents__link toc-highlight">Zero Trust Architecture</a></li></ul></li><li><a href="#troubleshooting-de-rede" class="table-of-contents__link toc-highlight">Troubleshooting de Rede</a><ul><li><a href="#comandos-úteis" class="table-of-contents__link toc-highlight">Comandos Úteis</a></li><li><a href="#problemas-comuns" class="table-of-contents__link toc-highlight">Problemas Comuns</a></li></ul></li><li><a href="#boas-práticas" class="table-of-contents__link toc-highlight">Boas Práticas</a><ul><li><a href="#documentação" class="table-of-contents__link toc-highlight">Documentação</a></li><li><a href="#monitoramento" class="table-of-contents__link toc-highlight">Monitoramento</a></li><li><a href="#segurança" class="table-of-contents__link toc-highlight">Segurança</a></li><li><a href="#performance-1" class="table-of-contents__link toc-highlight">Performance</a></li></ul></li><li><a href="#recursos-complementares" class="table-of-contents__link toc-highlight">Recursos Complementares</a><ul><li><a href="#-referências-e-documentação" class="table-of-contents__link toc-highlight">📚 Referências e Documentação</a></li><li><a href="#-conteúdo-audiovisual" class="table-of-contents__link toc-highlight">🎥 Conteúdo Audiovisual</a></li><li><a href="#️-ferramentas-práticas" class="table-of-contents__link toc-highlight">🛠️ Ferramentas Práticas</a></li><li><a href="#-certificações-relevantes" class="table-of-contents__link toc-highlight">🎯 Certificações Relevantes</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 DaviGA. Built with Docusaurus.</div></div></div></footer></div>
 </body>
 </html>
