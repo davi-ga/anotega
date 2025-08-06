@@ -324,6 +324,15 @@ const usuario: UsuarioSemEmail = {
 
 };
 ```
+#### Operator +
+
+O operador `+` em TypeScript pode ser usado para transformar strings em números. Quando aplicado a uma string que representa um número, ele converte essa string para o tipo `number`.
+
+```typescript
+const numeroString: string = "42";
+const numero: number = +numeroString;
+console.log(numero); 
+```
 
 #### Pipe
 

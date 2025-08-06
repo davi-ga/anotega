@@ -386,43 +386,41 @@ Os Pipes são usados para transformar e validar os dados das requisições antes
 
 Eles são classes que implementam a interface `PipeTransform` e podem ser usados para transformar ou validar os dados das requisições antes que eles sejam processados pelos controladores.
 
-```typescript title="validation.pipe.ts"
-import { Injectable, PipeTransform, ArgumentMetadata, BadRequestException } from '@nestjs/common';
-@Injectable()
-export class ValidationPipe implements PipeTransform {
-    transform(value: any, metadata: ArgumentMetadata) {
-        if (!value || typeof value !== 'object') {
-            throw new BadRequestException('Invalid data');
+São executados após o middleware e antes do controlador.
+
+
+### Parse
+
+Os Pipes de Parse são usados para transformar os dados das requisições em tipos específicos. Eles podem ser usados para converter strings em números, booleans ou outros tipos de dados.
+
+
+#### Built-in Pipes
+
+O NestJS fornece vários Pipes embutidos que podem ser usados para validação e transformação de dados. Alguns dos Pipes embutidos mais comuns incluem:
+
+```typescript title="example.controller.ts"         
+    import { Controller, Get, Param, UsePipes } from '@nestjs/common';
+    import { ParseIntPipe } from './parse-int.pipe';
+    @Controller('example')
+    export class ExampleController {
+        @Get(':id')
+        getExample(@Param('id',ParseIntPipe) id: number) {
+            return `Example with ID: ${id}`;
         }
-        return value;
     }
-}
 ```
+### Validation Pipes
+
+Os Validation Pipes são usados para validar os dados das requisições antes que eles sejam processados pelos controladores. Eles podem ser usados para aplicar regras de validação, como verificar se um campo é obrigatório, se um valor está dentro de um intervalo ou se um campo é do tipo correto.
+
 ```typescript title="example.controller.ts"
 import { Controller, Post, Body, UsePipes } from '@nestjs/common';
 import { ValidationPipe } from './validation.pipe';
 @Controller('example')
 export class ExampleController {
     @Post()
-    @UsePipes(ValidationPipe)
-    createExample(@Body() createExampleDto: CreateExampleDto) {
+    createExample(@Body(new ValidationPipe()) createExampleDto: CreateExampleDto) {
         return `Example created with data: ${JSON.stringify(createExampleDto)}`;
-    }
-}
-```
-
-### Parse
-
-Os Pipes de Parse são usados para transformar os dados das requisições em tipos específicos. Eles podem ser usados para converter strings em números, booleans ou outros tipos de dados.
-
-```typescript title="example.controller.ts"         
-import { Controller, Get, Param, UsePipes } from '@nestjs/common';
-import { ParseIntPipe } from './parse-int.pipe';
-@Controller('example')
-export class ExampleController {
-    @Get(':id')
-    getExample(@Param('id',ParseIntPipe) id: number) {
-        return `Example with ID: ${id}`;
     }
 }
 ```

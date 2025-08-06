@@ -5,6 +5,15 @@
 
 Redes de computadores são sistemas interconectados que permitem a comunicação entre dispositivos computacionais, possibilitando o compartilhamento de recursos, dados e serviços. Essas redes formam a base da internet moderna e são fundamentais para a computação distribuída.
 
+### Conceitos Fundamentais
+
+- **Nó**: Qualquer dispositivo conectado à rede (computador, servidor, roteador, etc.)
+- **Link**: Conexão física ou lógica entre dois nós
+- **Protocolo**: Conjunto de regras que governam a comunicação na rede
+- **Largura de Banda**: Capacidade máxima de transmissão de dados
+- **Latência**: Tempo necessário para um pacote viajar de origem ao destino
+- **Throughput**: Taxa real de transferência de dados alcançada
+
 ## Tipos de Redes
 
 ### Por Abrangência Geográfica
@@ -45,14 +54,67 @@ Redes de computadores são sistemas interconectados que permitem a comunicação
 
 #### Topologia Mesh
 - **Estrutura**: Múltiplas conexões entre dispositivos
+- **Tipos**:
+  - **Full Mesh**: Cada nó conecta-se diretamente a todos os outros
+  - **Partial Mesh**: Conexões seletivas baseadas em necessidades
 - **Vantagens**: Alta redundância e confiabilidade
 - **Desvantagens**: Complexa e cara
+
+#### Topologia Híbrida
+- **Estrutura**: Combinação de duas ou mais topologias
+- **Exemplo**: Estrela-Barramento em redes corporativas
+- **Vantagens**: Flexibilidade e escalabilidade
+- **Uso**: Redes empresariais complexas
+
+### Por Arquitetura de Comunicação
+
+#### Cliente-Servidor
+```
+Cliente1 ──┐
+Cliente2 ──┼── Servidor Central
+Cliente3 ──┘
+```
+- **Características**: Servidor centralizado fornece serviços
+- **Vantagens**: Controle centralizado, backup simplificado
+- **Desvantagens**: Ponto único de falha, gargalo no servidor
+
+#### Peer-to-Peer (P2P)
+```
+Peer1 ────── Peer2
+  │     ✕     │
+  │   /   \   │
+  │  /     \  │
+Peer4 ────── Peer3
+```
+- **Características**: Todos os nós têm capacidades equivalentes
+- **Vantagens**: Sem ponto único de falha, escalabilidade
+- **Exemplos**: BitTorrent, blockchain, sistemas distribuídos
 
 ## Modelo OSI (Open Systems Interconnection)
 
 O modelo OSI é um padrão de referência que define como os sistemas de rede devem se comunicar.
 
 ### Camadas do Modelo OSI
+
+```
+┌─────────────────────────┬──────────────────────┬─────────────────────┐
+│    CAMADA               │    FUNÇÃO            │    EXEMPLOS         │
+├─────────────────────────┼──────────────────────┼─────────────────────┤
+│ 7. Aplicação            │ Interface usuário    │ HTTP, FTP, DNS      │
+├─────────────────────────┼──────────────────────┼─────────────────────┤
+│ 6. Apresentação         │ Criptografia, comp.  │ SSL/TLS, JPEG       │
+├─────────────────────────┼──────────────────────┼─────────────────────┤
+│ 5. Sessão               │ Gerenc. sessões      │ NetBIOS, RPC        │
+├─────────────────────────┼──────────────────────┼─────────────────────┤
+│ 4. Transporte           │ Entrega fim-a-fim    │ TCP, UDP            │
+├─────────────────────────┼──────────────────────┼─────────────────────┤
+│ 3. Rede                 │ Roteamento           │ IP, ICMP, OSPF      │
+├─────────────────────────┼──────────────────────┼─────────────────────┤
+│ 2. Enlace               │ Controle de acesso   │ Ethernet, PPP       │
+├─────────────────────────┼──────────────────────┼─────────────────────┤
+│ 1. Física               │ Transmissão bits     │ Cabo, Fibra, WiFi   │
+└─────────────────────────┴──────────────────────┴─────────────────────┘
+```
 
 1. **Física**: Transmissão de bits através do meio físico (Cabo, fibra óptica, rádio)
 2. **Enlace**: Controle de acesso ao meio e detecção de erros (Switches)
@@ -64,6 +126,20 @@ O modelo OSI é um padrão de referência que define como os sistemas de rede de
 
 ![Modelo OSI](image.png)
 
+### Encapsulamento de Dados
+
+```
+┌─ Aplicação ────────────────────────────────────────────┐
+│ Dados da Aplicação                                     │
+├─ Transporte ───────────────────────────────────────────┤
+│ Cabeçalho TCP/UDP | Dados da Aplicação                 │
+├─ Rede ─────────────────────────────────────────────────┤
+│ Cabeçalho IP | Cabeçalho TCP/UDP | Dados Aplicação    │
+├─ Enlace ───────────────────────────────────────────────┤
+│ Cab. Ethernet | Cab. IP | Cab. TCP/UDP | Dados | FCS   │
+└────────────────────────────────────────────────────────┘
+```
+
 ## Protocolos de Rede
 
 ### TCP/IP
@@ -71,17 +147,70 @@ O modelo OSI é um padrão de referência que define como os sistemas de rede de
 #### TCP (Transmission Control Protocol)
 - **Características**: Confiável, orientado à conexão
 - **Uso**: Aplicações que requerem entrega garantida (HTTP, FTP, SSH)
-- **Funcionalidades**: Controle de fluxo, detecção e correção de erros
+- **Funcionalidades**: 
+  - Controle de fluxo
+  - Detecção e correção de erros
+  - Ordenação de pacotes
+  - Controle de congestionamento
+
+**Three-Way Handshake (Estabelecimento de Conexão TCP):**
+```
+Cliente                    Servidor
+   │                          │
+   ├─── SYN (seq=x) ─────────>│
+   │<── SYN-ACK (seq=y,ack=x+1)│
+   ├─── ACK (ack=y+1) ───────>│
+   │                          │
+   │    Conexão Estabelecida   │
+```
 
 #### UDP (User Datagram Protocol)
 - **Características**: Não confiável, sem conexão
 - **Uso**: Aplicações em tempo real (streaming, jogos, DNS)
 - **Vantagens**: Menor overhead, maior velocidade
+- **Estrutura do cabeçalho**: Apenas 8 bytes vs 20+ bytes do TCP
+
+**Comparação TCP vs UDP:**
+| Aspecto | TCP | UDP |
+|---------|-----|-----|
+| Confiabilidade | Alta | Baixa |
+| Velocidade | Menor | Maior |
+| Overhead | Alto | Baixo |
+| Controle de fluxo | Sim | Não |
+| Ordenação | Sim | Não |
+| Uso típico | HTTP, SMTP, FTP | DNS, DHCP, Gaming |
 
 #### IP (Internet Protocol)
+
+**Estrutura do Cabeçalho IPv4:**
+```
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|Version|  IHL  |Type of Service|          Total Length         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|         Identification        |Flags|      Fragment Offset    |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|  Time to Live |    Protocol   |         Header Checksum       |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                       Source Address                          |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Destination Address                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+```
+
 - **IPv4**: Endereços de 32 bits (ex: 192.168.1.1)
+  - **Limitação**: ~4.3 bilhões de endereços
+  - **Esgotamento**: Problema atual da internet
 - **IPv6**: Endereços de 128 bits (ex: 2001:0db8:85a3::8a2e:0370:7334)
+  - **Capacidade**: 340 undecilhões de endereços
+  - **Recursos**: Autoconfiguração, IPSec nativo, QoS melhorado
 - **Função**: Roteamento de pacotes entre redes
+
+**Migração IPv4 para IPv6:**
+- **Dual Stack**: Suporte simultâneo a IPv4 e IPv6
+- **Tunneling**: Encapsulamento IPv6 em IPv4
+- **NAT64**: Tradução entre IPv4 e IPv6
 
 O Modelo TCP/IP possui duas versões:
 
@@ -104,7 +233,55 @@ O Modelo TCP/IP possui duas versões:
 #### DNS (Domain Name System)
 - **Função**: Tradução de nomes de domínio para endereços IP
 - **Porta**: 53
-- **Tipos de registro**: A, AAAA, CNAME, MX, NS
+- **Tipos de registro**: 
+  - **A**: IPv4 address
+  - **AAAA**: IPv6 address
+  - **CNAME**: Canonical name (alias)
+  - **MX**: Mail exchange
+  - **NS**: Name server
+  - **PTR**: Pointer (reverse DNS)
+  - **TXT**: Text record
+  - **SRV**: Service record
+
+**Hierarquia DNS:**
+```
+                    . (root)
+                   / | \
+                  /  |  \
+               com   org  net   edu   gov
+              /  |   |    |      |     |
+           google amazon     mit   nasa
+           /    |      \
+         www   mail    ftp
+```
+
+**Processo de Resolução DNS:**
+```
+1. Cliente → Resolver Local (cache)
+2. Resolver → Root Server → .com Server
+3. .com Server → Authoritative Server
+4. Retorno com endereço IP
+```
+
+#### DHCP (Dynamic Host Configuration Protocol)
+- **Função**: Atribuição automática de configurações IP
+- **Porta**: 67 (servidor), 68 (cliente)
+- **Processo DORA**:
+  1. **Discover**: Cliente procura servidores DHCP
+  2. **Offer**: Servidor oferece configuração
+  3. **Request**: Cliente solicita configuração específica
+  4. **Acknowledge**: Servidor confirma atribuição
+
+#### SMTP/POP3/IMAP (Email)
+- **SMTP** (Simple Mail Transfer Protocol):
+  - **Porta**: 25, 587 (submission), 465 (SSL)
+  - **Função**: Envio de emails
+- **POP3** (Post Office Protocol v3):
+  - **Porta**: 110, 995 (SSL)
+  - **Características**: Download e remoção do servidor
+- **IMAP** (Internet Message Access Protocol):
+  - **Porta**: 143, 993 (SSL)
+  - **Características**: Sincronização entre dispositivos
 
 ## Dispositivos de Rede
 
@@ -115,18 +292,79 @@ O Modelo TCP/IP possui duas versões:
 
 ### Switch
 - **Função**: Conecta dispositivos em uma LAN
-- **Características**: Opera na camada de enlace, aprendizado de MAC
+- **Características**: 
+  - Opera na camada de enlace (Layer 2)
+  - Aprendizado de endereços MAC
+  - Construção dinâmica da tabela MAC
 - **Vantagens**: Cada porta é um domínio de colisão separado
+- **Recursos Avançados**:
+  - **VLANs**: Segmentação lógica da rede
+  - **STP**: Spanning Tree Protocol para evitar loops
+  - **Port Security**: Controle de acesso por porta
+  - **QoS**: Quality of Service para priorização de tráfego
+
+**Tabela MAC:**
+```
+MAC Address       | Port | VLAN | Age
+00:11:22:33:44:55 |  1   |  10  | 120s
+AA:BB:CC:DD:EE:FF |  3   |  20  | 85s
+```
 
 ### Roteador
 - **Função**: Conecta diferentes redes e roteia pacotes
-- **Características**: Opera na camada de rede, tabela de roteamento
-- **Protocolos**: RIP, OSPF, BGP
+- **Características**: 
+  - Opera na camada de rede (Layer 3)
+  - Mantém tabela de roteamento
+  - Toma decisões baseadas em endereços IP
+- **Protocolos de Roteamento**:
+  - **RIP**: Distance Vector, máx. 15 hops
+  - **OSPF**: Link State, convergência rápida
+  - **BGP**: Path Vector, usado na internet
+  - **EIGRP**: Híbrido, proprietário Cisco
+
+**Tabela de Roteamento:**
+```
+Destination    | Next Hop      | Interface | Metric
+192.168.1.0/24 | 0.0.0.0      | eth0      | 0
+10.0.0.0/8     | 192.168.1.1  | eth0      | 1
+0.0.0.0/0      | 203.0.113.1  | eth1      | 1
+```
 
 ### Access Point (AP)
 - **Função**: Fornece acesso wireless à rede
-- **Padrões**: 802.11a/b/g/n/ac/ax (Wi-Fi 6)
-- **Segurança**: WPA2, WPA3
+- **Padrões IEEE 802.11**:
+  - **802.11a**: 5GHz, até 54 Mbps
+  - **802.11b**: 2.4GHz, até 11 Mbps
+  - **802.11g**: 2.4GHz, até 54 Mbps
+  - **802.11n** (Wi-Fi 4): Dual-band, até 600 Mbps, MIMO
+  - **802.11ac** (Wi-Fi 5): 5GHz, até 3.5 Gbps, MU-MIMO
+  - **802.11ax** (Wi-Fi 6): Dual-band, até 9.6 Gbps, OFDMA
+- **Segurança**: WEP (obsoleto), WPA, WPA2, WPA3
+
+**Comparação Wi-Fi:**
+| Padrão | Frequência | Vel. Máx | Ano | Recursos |
+|--------|------------|-----------|-----|----------|
+| 802.11ax | 2.4/5/6 GHz | 9.6 Gbps | 2019 | OFDMA, Target Wake Time |
+| 802.11ac | 5 GHz | 3.5 Gbps | 2013 | MU-MIMO, Beamforming |
+| 802.11n | 2.4/5 GHz | 600 Mbps | 2009 | MIMO, Channel Bonding |
+
+### Firewall
+- **Função**: Controla tráfego baseado em regras de segurança
+- **Tipos**:
+  - **Packet Filtering**: Filtra baseado em cabeçalhos
+  - **Stateful Inspection**: Mantém estado das conexões
+  - **Application Layer**: Inspeção profunda de pacotes
+  - **Next-Gen Firewall (NGFW)**: IPS, antimalware, controle de aplicações
+- **Implementação**: Hardware dedicado, software, baseado em nuvem
+
+### Load Balancer
+- **Função**: Distribui tráfego entre múltiplos servidores
+- **Algoritmos**:
+  - **Round Robin**: Distribuição sequencial
+  - **Least Connections**: Servidor com menos conexões ativas
+  - **IP Hash**: Baseado no hash do IP do cliente
+  - **Weighted**: Distribuição baseada em pesos
+- **Tipos**: Layer 4 (transporte), Layer 7 (aplicação)
 
 ## Endereçamento IP
 
@@ -152,10 +390,56 @@ O Modelo TCP/IP possui duas versões:
 - **172.16.0.0/12**: Classe B privada
 - **192.168.0.0/16**: Classe C privada
 
-### CIDR (Classless Inter-Domain Routing)
-- **Conceito**: Notação que permite subnetting flexível
-- **Formato**: Endereço/Prefixo (ex: 192.168.1.0/24)
-- **Vantagem**: Uso mais eficiente do espaço de endereços
+### Subnetting e VLSM
+
+#### Subnetting Básico
+**Exemplo: Dividir 192.168.1.0/24 em 4 subredes:**
+```
+Rede Original: 192.168.1.0/24 (256 IPs)
+├─ Subrede 1: 192.168.1.0/26   (64 IPs: .0-.63)
+├─ Subrede 2: 192.168.1.64/26  (64 IPs: .64-.127)  
+├─ Subrede 3: 192.168.1.128/26 (64 IPs: .128-.191)
+└─ Subrede 4: 192.168.1.192/26 (64 IPs: .192-.255)
+```
+
+#### VLSM (Variable Length Subnet Masking)
+**Exemplo: Empresa com diferentes departamentos:**
+```
+Departamento | Hosts Necessários | Subrede | Máscara | IPs Disponíveis
+TI           | 100              | /25     | .0-.127 | 126
+Vendas       | 50               | /26     | .128-.191 | 62
+RH           | 25               | /27     | .192-.223 | 30
+Direção      | 10               | /28     | .224-.239 | 14
+```
+
+### Endereços Especiais
+- **127.0.0.1**: Loopback (localhost)
+- **0.0.0.0**: Rota padrão ou endereço não especificado
+- **255.255.255.255**: Broadcast limitado
+- **169.254.x.x**: APIPA (Automatic Private IP Addressing)
+- **224.0.0.0 - 239.255.255.255**: Multicast (Classe D)
+- **240.0.0.0 - 255.255.255.255**: Reservado (Classe E)
+
+### NAT (Network Address Translation)
+
+**Tipos de NAT:**
+- **Static NAT**: Mapeamento 1:1 fixo
+- **Dynamic NAT**: Pool de endereços públicos
+- **PAT/NAPT**: Port Address Translation (mais comum)
+
+**Exemplo PAT:**
+```
+Rede Interna          |  NAT Router  |  Internet
+192.168.1.10:1234 ────┼──────────────┼──> 203.0.113.1:5001
+192.168.1.11:5678 ────┼──────────────┼──> 203.0.113.1:5002
+192.168.1.12:8080 ────┼──────────────┼──> 203.0.113.1:5003
+```
+
+**Problemas do NAT:**
+- Quebra da conectividade fim-a-fim
+- Problemas com protocolos que carregam endereços IP
+- Dificuldades com P2P e jogos online
+- Limitações para servidores internos
 
 ## Segurança de Redes
 
@@ -166,13 +450,57 @@ O Modelo TCP/IP possui duas versões:
 
 ### VPN (Virtual Private Network)
 - **Função**: Cria túnel seguro através de rede pública
-- **Protocolos**: OpenVPN, IPSec, L2TP, WireGuard
-- **Uso**: Acesso remoto seguro, conexão entre filiais
+- **Protocolos**:
+  - **OpenVPN**: Open source, flexível, baseado em SSL/TLS
+  - **IPSec**: Padrão industrial, integrado ao kernel
+  - **L2TP**: Layer 2 Tunneling Protocol
+  - **WireGuard**: Moderno, simples, alta performance
+  - **SSTP**: Secure Socket Tunneling Protocol (Microsoft)
+- **Tipos**:
+  - **Site-to-Site**: Conecta duas redes corporativas
+  - **Remote Access**: Usuários remotos acessam rede corporativa
+  - **Client-to-Client**: Conexão direta entre clientes
+
+**Arquitetura VPN Site-to-Site:**
+```
+Filial A                    Internet                    Matriz
+[LAN] ──── [VPN Gateway] ════════════════ [VPN Gateway] ──── [LAN]
+192.168.1.0/24           Túnel Criptografado           10.0.0.0/24
+```
+
+### IDS/IPS (Intrusion Detection/Prevention Systems)
+- **IDS**: Detecta e alerta sobre atividades suspeitas
+- **IPS**: Detecta e bloqueia automaticamente ameaças
+- **Tipos**:
+  - **NIDS/NIPS**: Network-based (monitora tráfego de rede)
+  - **HIDS/HIPS**: Host-based (monitora sistema específico)
+- **Métodos de Detecção**:
+  - **Signature-based**: Padrões conhecidos de ataques
+  - **Anomaly-based**: Desvios do comportamento normal
+  - **Heuristic**: Análise comportamental avançada
 
 ### Criptografia
-- **Simétrica**: Mesma chave para cifrar e decifrar (AES)
-- **Assimétrica**: Par de chaves pública/privada (RSA)
-- **Hash**: Função unidirecional para integridade (SHA-256)
+- **Simétrica**: 
+  - Mesma chave para cifrar e decifrar
+  - **Algoritmos**: AES, DES, 3DES, ChaCha20
+  - **Uso**: Criptografia de dados em massa
+- **Assimétrica**: 
+  - Par de chaves pública/privada
+  - **Algoritmos**: RSA, ECC, DSA
+  - **Uso**: Troca de chaves, assinaturas digitais
+- **Hash**: 
+  - Função unidirecional para integridade
+  - **Algoritmos**: SHA-256, SHA-3, BLAKE2
+  - **Uso**: Verificação de integridade, senhas
+
+### Zero Trust Architecture
+- **Princípio**: "Nunca confie, sempre verifique"
+- **Componentes**:
+  - **Identity Verification**: Autenticação multifator
+  - **Device Compliance**: Verificação de dispositivos
+  - **Application Security**: Microsegmentação
+  - **Network Segmentation**: Acesso baseado em contexto
+- **Implementação**: Gradual, baseada em políticas
 
 ## Troubleshooting de Rede
 
