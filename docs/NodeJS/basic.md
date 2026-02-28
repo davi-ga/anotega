@@ -180,7 +180,7 @@ O tipo `never` é usado para indicar que uma função nunca retorna um valor, se
 function erro(mensagem: string): never {
   throw new Error(mensagem);
 }
-
+```
 
 ### Funções
 
@@ -297,6 +297,37 @@ class Estudante implements PessoaInterface {
   }
   falar(): void {
     console.log(`Meu nome é ${this.nome} e tenho ${this.idade} anos.`);
+  }
+}
+```
+
+#### Interface de Classes
+
+É possível definir uma classe que implementa uma interface, garantindo que ela siga o contrato definido pela interface.
+
+```typescript
+interface PessoaInterface {
+  nome: string;
+  idade: number;
+
+  falar: () => {
+    idioma: string
+  };
+}
+
+class Estudante implements PessoaInterface {
+  nome: string;
+  idade: number;
+  constructor(nome: string, idade: number) {
+    this.nome = nome;
+    this.idade = idade;
+  }
+  falar(): {
+    idioma: string
+  } {
+    return {
+      idioma: 'Português'
+    };
   }
 }
 ```

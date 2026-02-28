@@ -196,7 +196,48 @@ export class AppService {
     }
 ```
 
-#### Retorno
+#### Repository
+
+Os Repositórios são responsáveis pela interação com a camada de persistência de dados. Eles encapsulam a lógica de acesso a dados e fornecem uma interface para os serviços. No NestJS, você pode criar Repositórios usando o padrão de projeto Repository.
+
+```typescript title="user.repository.ts"
+import { EntityRepository, Repository } from 'typeorm';
+import { User } from './user.entity';
+
+@EntityRepository(User)
+export class UserRepository extends Repository<User> {
+    // Métodos personalizados para acessar dados de usuários
+}
+```
+
+Geralmente usa-se dentro de um Service e é uma melhoria de segundo plano
+
+### Decorators
+
+Os Decorators são uma parte fundamental do NestJS e do TypeScript. Eles são usados para adicionar metadados às classes, métodos, propriedades e parâmetros. No NestJS, os decoradores são amplamente utilizados para definir controladores, rotas, injeção de dependências e muito mais.
+
+Eles são funções que podem ser aplicadas a classes, métodos, propriedades ou parâmetros para modificar seu comportamento ou adicionar metadados. No NestJS, os decoradores são usados para definir controladores, rotas, injeção de dependências e muito mais.
+
+```typescript title="example.decorator.ts"
+import { SetMetadata } from '@nestjs/common';
+export const Roles = (...roles: string[]) => SetMetadata('roles', roles);
+```
+
+```typescript title="example.controller.ts"
+import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Roles } from './example.decorator';
+import { RolesGuard } from './roles.guard';
+@Controller('example')
+export class ExampleController {
+    @Get()
+    @Roles('admin')
+    @UseGuards(RolesGuard)
+    getExample() {
+        return 'This is an example route';
+    }
+}
+
+```
 
 
 
@@ -353,32 +394,6 @@ export class AuthGuard implements CanActivate {
 ```
 
 
-## Decorators
-
-Os Decorators são uma parte fundamental do NestJS e do TypeScript. Eles são usados para adicionar metadados às classes, métodos, propriedades e parâmetros. No NestJS, os decoradores são amplamente utilizados para definir controladores, rotas, injeção de dependências e muito mais.
-
-Eles são funções que podem ser aplicadas a classes, métodos, propriedades ou parâmetros para modificar seu comportamento ou adicionar metadados. No NestJS, os decoradores são usados para definir controladores, rotas, injeção de dependências e muito mais.
-
-```typescript title="example.decorator.ts"
-import { SetMetadata } from '@nestjs/common';
-export const Roles = (...roles: string[]) => SetMetadata('roles', roles);
-```
-
-```typescript title="example.controller.ts"
-import { Controller, Get, UseGuards } from '@nestjs/common';
-import { Roles } from './example.decorator';
-import { RolesGuard } from './roles.guard';
-@Controller('example')
-export class ExampleController {
-    @Get()
-    @Roles('admin')
-    @UseGuards(RolesGuard)
-    getExample() {
-        return 'This is an example route';
-    }
-}
-
-```
 
 ## Pipes
 
